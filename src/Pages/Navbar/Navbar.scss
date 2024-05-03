@@ -1,0 +1,200 @@
+.navBig {
+  width: 100%;
+  position: relative;
+  .cont {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #46a35921;
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+
+      .link {
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+        color: #3d3d3d;
+        padding: 18px 0px;
+        transition: all 0.3s;
+      }
+      .active {
+        text-decoration: none;
+        padding: 16px 0px;
+        font-family: "Roboto", sans-serif;
+        color: #3d3d3d;
+        border-bottom: 1px solid #46a358;
+      }
+      .bottom {
+        border-bottom: 1px solid #46a358;
+      }
+    }
+    .rightLogin {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .userProfil {
+        width: 40px;
+        height: 40px;
+        background-color: #46a358;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .login {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 16px;
+        border-radius: 6px;
+        background-color: #46a358;
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+      }
+      .search {
+        width: 24px;
+        cursor: pointer;
+      }
+    }
+  }
+  .owelay {
+    background-color: #00000038;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    height: 100vh;
+  }
+  .loginModal {
+    width: 400px;
+    padding: 50px 50px;
+    border-bottom: 5px solid #46a358;
+    position: absolute;
+    top: 18%;
+    right: 40%;
+    z-index: 10;
+    background-color: #fff;
+
+    .login-register {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      p {
+        color: #3d3d3d;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+      p:hover {
+        color: #46a358;
+      }
+      .loginLine {
+        width: 1px;
+        height: 20px;
+        background-color: #3d3d3d49;
+      }
+    }
+    .login-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      p {
+        margin-top: 50px;
+        color: #3d3d3d;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .login-input {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+
+        input {
+          padding: 12px 14px;
+          border: 1px solid #eaeaea;
+          border-radius: 5px;
+          font-family: "Roboto", sans-serif;
+        }
+      }
+    }
+    .login-btn {
+      width: 100%;
+      .login-but {
+        width: 100%;
+        padding: 13px 0px;
+        background-color: #46a358;
+        font-family: "Roboto", sans-serif;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 27px;
+      }
+    }
+    .or {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+
+      p {
+        width: 100%;
+        color: #3d3d3d;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+      }
+      .line {
+        width: 100%;
+        height: 1px;
+        background-color: #3d3d3d3b;
+      }
+    }
+    .goo-face {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 25px;
+
+      button {
+        width: 100%;
+        padding: 13px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        color: #000000;
+        font-size: 16px;
+        font-weight: 400;
+        border: 1px solid #eaeaea;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    }
+  }
+}
