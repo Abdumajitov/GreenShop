@@ -13,6 +13,8 @@ const menu = ["Home", "Shop", "Plant Care", "Blogs"];
 function Navbar() {
   const navigate = useNavigate();
   const profil = JSON.parse(localStorage.getItem("user"));
+  const profilImger = JSON.parse(localStorage.getItem("profilImg"));
+  const { korzinaProduct } = useSelector((state) => state.productSlice);
 
   const [btnFalse, setBtnFalse] = useState(false);
 
@@ -22,6 +24,9 @@ function Navbar() {
 
   const gotoProfil = () => {
     navigate("/profil/detal");
+  };
+  const gotoKorzina = () => {
+    navigate("/korzina");
   };
 
   const owerHand = () => {
@@ -41,14 +46,15 @@ function Navbar() {
       return { ...prev, [name]: value, id: Date.now() };
     });
   };
-  useEffect(()=>{
-    btnHand()
-  },[])
+  useEffect(() => {
+    btnHand();
+  }, []);
   const btnHand = () => {
     if (userData.email && userData.password) {
       localStorage.setItem("user", JSON.stringify(userData));
-      navigate("/")
+      navigate("/");
     }
+    setBtnFalse(false);
   };
 
   return (
@@ -57,6 +63,9 @@ function Navbar() {
         <div className="navbar">
           <div className="logo">
             <img src={login} alt="" />
+          </div>
+          <div className="media">
+            <input type="text" className="mediaInput" />
           </div>
           <div className="menu">
             <NavLink
@@ -86,10 +95,26 @@ function Navbar() {
           </div>
           <div className="rightLogin">
             <img className="search" src={serach} alt="" />
-            <img className="search" src={ShopingBag} alt="" />
+            <div className="shopBag">
+              <img
+                onClick={gotoKorzina}
+                className="search"
+                src={ShopingBag}
+                alt=""
+              />
+              <p className="shopBag-p">{korzinaProduct.length}</p>
+            </div>
             {profil ? (
               <div onClick={gotoProfil} className="userProfil">
-                {profil.email[0]}
+                {profilImger ? (
+                  <img
+                    onClick={gotoProfil}
+                    src={profilImger.img}
+                    className="userProfil"
+                  />
+                ) : (
+                  <div className="userProfil">{userData.email[0]}</div>
+                )}
               </div>
             ) : (
               <button onClick={linkHand} className="login">

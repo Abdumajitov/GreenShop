@@ -1,14 +1,56 @@
 import React from "react";
 import "./AccDetal.scss";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import { useState } from "react";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 function AccDetal() {
   const user = JSON.parse(localStorage.getItem("user"));
+  const [profilImg, setPtofilImg] = useState({
+    img: "",
+  });
+
+  const profilImger = JSON.parse(localStorage.getItem("profilImg"));
+  console.log(profilImger);
+
+  const imgChange = (e) => {
+    const name = e.target.name;
+    const value =
+      e.target.type === "file"
+        ? URL.createObjectURL(e.target.files[0])
+        : e.target.value;
+
+    setPtofilImg((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const [alert, setAlert] = useState(false);
+
+  const saveChange = () => {
+    setAlert((prev) => !prev);
+    localStorage.setItem("profilImg", JSON.stringify(profilImg));
+  };
+
+  const remuveImg = () => {
+    console.log("sdfasdf");
+  };
+
+  setTimeout(() => {
+    setAlert(false);
+  }, 1500);
+
   return (
     <div className="rightProfil">
+      <div className={alert ? "activeAlert" : "alert"}>
+        <Stack sx={{ width: "100%" }} spacing={2}>
+          <Alert severity="success">This is a success Alert.</Alert>
+        </Stack>
+      </div>
+      <p className="passwordChange-p">Personal Information</p>
       <div className="personInformation">
         <div className="firstName-cont">
-          <p className="passwordChange-p">Personal Information</p>
           <div className="firstName">
             <label htmlFor="">First Name</label>
             <input type="text" />
@@ -40,11 +82,28 @@ function AccDetal() {
           <div className="firstName">
             <label htmlFor="">Photo</label>
             <div className="numberInput">
-              <div className="userPhoto">
-                <AddPhotoAlternateIcon />
-              </div>
-              <button className="change-but">Change</button>
-              <button className="remuverImg">Remove</button>
+              <label htmlFor="profilImg">
+                <div className="userPhoto">
+                  {profilImger ? (
+                    <img src={profilImger.img} alt="" />
+                  ) : (
+                    <AddPhotoAlternateIcon />
+                  )}
+                </div>
+              </label>
+              <input
+                style={{ display: "none" }}
+                type="file"
+                onChange={imgChange}
+                name="img"
+                id="profilImg"
+              />
+              <button onClick={saveChange} className="change-but">
+                Change
+              </button>
+              <button onChange={remuveImg} className="remuverImg">
+                Remove
+              </button>
             </div>
           </div>
         </div>
@@ -64,7 +123,9 @@ function AccDetal() {
           <input type="text" />
         </div>
         <div className="changeBtn">
-          <button className="change-but">Save Change</button>
+          <button onClick={saveChange} className="change-but">
+            Save Change
+          </button>
         </div>
       </div>
     </div>

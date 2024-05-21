@@ -13,7 +13,26 @@ const Navabr = lazy(() => import("./Pages/Navbar/Navbar"));
 const Blog = lazy(() => import("./2ndPage/Blogs/Blog"));
 const Shop = lazy(() => import("./2ndPage/Shop/Shop"));
 
-const AccaountDetal = lazy(() => import("./Components/profil/profilComponents/AccauntDetals/AccDetal"));
+const AccaountDetal = lazy(() =>
+  import("./Components/profil/profilComponents/AccauntDetals/AccDetal")
+);
+const Addres = lazy(() =>
+  import("./Components/profil/profilComponents/Addres/Addres")
+);
+const Download = lazy(() =>
+  import("./Components/profil//profilComponents/Dowland/Dowland")
+);
+const Likes = lazy(() =>
+  import("./Components/profil/profilComponents/Likes/Likes")
+);
+const Orders = lazy(() =>
+  import("./Components/profil/profilComponents/Orders/Orders")
+);
+const Support = lazy(() =>
+  import("./Components/profil/profilComponents/Support/Support")
+);
+const ProductItem = lazy(() => import("./Components/producPage/ProductPage"));
+const Korzina = lazy(() => import("./Components/Korzina/Korzina"));
 
 const router = createBrowserRouter([
   {
@@ -25,14 +44,42 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
+        path: "/productItem",
+        element: <ProductItem />,
+      },
+      {
+        path: "/korzina",
+        element: <Korzina />,
+      },
+      {
         path: "/profil",
         element: <Profil />,
         children: [
           {
             path: "/profil/detal",
-            element: <AccaountDetal/>
-          }
-        ]
+            element: <AccaountDetal />,
+          },
+          {
+            path: "/profil/addres",
+            element: <Addres />,
+          },
+          {
+            path: "/profil/download",
+            element: <Download />,
+          },
+          {
+            path: "/profil/likes",
+            element: <Likes />,
+          },
+          {
+            path: "/profil/orders",
+            element: <Orders />,
+          },
+          {
+            path: "/profil/support",
+            element: <Support />,
+          },
+        ],
       },
       {
         path: "/blog",
@@ -47,6 +94,28 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
+    children: [
+      {
+        path: "/admin/detal",
+        element: <AccaountDetal />,
+      },
+      {
+        path: "/admin/addres",
+        element: <Addres />,
+      },
+      {
+        path: "/admin/download",
+        element: <Download />,
+      },
+      {
+        path: "/admin/orders",
+        element: <Orders />,
+      },
+      {
+        path: "/admin/support",
+        element: <Support />,
+      },
+    ],
   },
 ]);
 

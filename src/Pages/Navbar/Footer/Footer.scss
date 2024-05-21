@@ -1,0 +1,165 @@
+.footer {
+  margin-top: 100px;
+
+  .garden {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    background-color: #fbfbfb;
+
+    .garden-cont {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      position: relative;
+      padding-right: 20px;
+
+      .bacc {
+        width: 80px;
+        height: 80px;
+        background-color: #46a35821;
+        border-radius: 50%;
+        position: absolute;
+        left: -20px;
+        top: 10px;
+      }
+
+      .garden-cont-p {
+        font-weight: 700;
+        color: #3d3d3d;
+        font-size: 18px;
+        margin-top: 15px;
+      }
+      .garden-cont-about {
+        font-weight: 400;
+        color: #727272;
+        font-size: 14px;
+        margin-top: 5px;
+        width: 200px;
+        word-spacing: 2px;
+      }
+    }
+    .wouldLike {
+      .wouldLike-p {
+        font-size: 19px;
+        font-weight: 700;
+        color: #3d3d3d;
+      }
+      .wouldLike-input {
+        display: flex;
+        align-items: center;
+        margin-top: 18px;
+        input {
+          padding: 12px 11px;
+          width: 250px;
+          border-bottom-left-radius: 6px;
+          border-top-left-radius: 6px;
+          border: 1px solid #00000015;
+        }
+        .wouldLike-btn {
+          background-color: #46a358;
+          font-size: 18px;
+          font-weight: 700;
+          color: #fff;
+          padding: 10px 26px;
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+          border: none;
+        }
+      }
+      .wouldLike-about {
+        font-weight: 400;
+        color: #727272;
+        font-size: 14px;
+        margin-top: 16px;
+        width: 350px;
+        line-height: 1.4;
+        word-spacing: 2px;
+      }
+    }
+  }
+  .greenLine {
+    padding: 27px 23px;
+    background-color: #46a3581a;
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    margin-top: 24px;
+
+    .greenLine-addres {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .greenLine-addres-p {
+        font-weight: 400;
+        color: #3d3d3d;
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+  .lastFooter {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fbfbfb;
+    padding: 25px;
+    margin-top: 10px;
+
+    .footerMyacc {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .bigers {
+        text-decoration: none;
+        color: #3d3d3d;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .active {
+        text-decoration: none;
+        color: #3d3d3d;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    .socialMedia {
+      .social-p {
+        color: #3d3d3d;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .social-btns {
+        display: flex;
+        gap: 1rem;
+
+        .social-btn {
+          padding: 7px 9px;
+          border: 1px solid #46a35833;
+          border-radius: 4px;
+          background-color: transparent;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  .footer .garden .garden-cont {
+    display: none;
+  }
+  .wouldLike {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer .greenLine{
+      display: none;
+  }
+  .socialMedia{
+    display: none;
+  }
+}

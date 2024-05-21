@@ -1,6 +1,7 @@
 import React from "react";
 import "./Profil.scss";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -8,14 +9,24 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import HelpIcon from "@mui/icons-material/Help";
 import LogoutIcon from "@mui/icons-material/Logout";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import Stack from "@mui/material/Stack";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Profil() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const remuve = () => {
+    navigate("/");
     JSON.parse(localStorage.removeItem("user"));
-    navigate("/")
   };
+
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <div className="profil">
       <div className="leftProfil">
@@ -31,7 +42,7 @@ function Profil() {
             Account Details
           </NavLink>
           <NavLink
-            to={"/"}
+            to={"/profil/addres"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
@@ -40,7 +51,7 @@ function Profil() {
             Address
           </NavLink>
           <NavLink
-            to={"/"}
+            to={"/profil/orders"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
@@ -49,7 +60,7 @@ function Profil() {
             Orders
           </NavLink>
           <NavLink
-            to={"/"}
+            to={"/profil/likes"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
@@ -58,7 +69,7 @@ function Profil() {
             Wishlist
           </NavLink>
           <NavLink
-            to={"/"}
+            to={"/profil/download"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
@@ -67,7 +78,7 @@ function Profil() {
             Downloads
           </NavLink>
           <NavLink
-            to={"/"}
+            to={"/profil/support"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
@@ -85,7 +96,15 @@ function Profil() {
         </div>
       </div>
       <div className="rightAccaunt">
-        <Outlet />
+        {loading ? (
+          <div className="profilLoadung">
+            <Stack sx={{ color: "grey.500" }} spacing={2} direction="row">
+              <CircularProgress color="success" />
+            </Stack>
+          </div>
+        ) : (
+          <Outlet />
+        )}
       </div>
     </div>
   );

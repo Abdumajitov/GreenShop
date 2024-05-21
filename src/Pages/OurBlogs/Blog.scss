@@ -1,0 +1,131 @@
+.blog {
+  margin-top: 100px;
+  .summer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    .summer-cont {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fbfbfb;
+      padding: 20px;
+
+      .summer-cont-text {
+        .summer-p {
+          color: #3d3d3d;
+          font-size: 18px;
+          font-weight: 900;
+        }
+        .summer-about {
+          color: #727272;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 24px;
+          margin-top: 10px;
+        }
+
+        .summer-btn {
+          padding: 10px 22px;
+          border-radius: 6px;
+          background-color: #46a358;
+          border: none;
+          cursor: pointer;
+          color: #fff;
+          font-size: 15px;
+          font-weight: 500;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+  .ourBlogs {
+    margin-top: 100px;
+
+    .ourPosts {
+      text-align: center;
+
+      .ourPost-p {
+        font-size: 30px;
+        font-weight: 700;
+        color: #3d3d3d;
+      }
+      .ourPost-about {
+        color: #727272;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 5px;
+      }
+    }
+    .ourPost-cont {
+      display: flex;
+      gap: 45px;
+      margin-top: 45px;
+
+      .ourPost-mini {
+        .ourPost-cont-text {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          padding: 4px 10px;
+
+          .ourPost-text-data {
+            font-weight: 500;
+            font-size: 14px;
+            color: #46a358;
+          }
+          .ourPost-text-name {
+            font-weight: 700;
+            font-size: 20px;
+            color: #3d3d3d;
+          }
+          .ourPost-text-about {
+            font-weight: 400;
+            font-size: 14px;
+            color: #727272;
+          }
+          .active {
+            font-weight: 500;
+            font-size: 14px;
+            color: #3d3d3d;
+            text-decoration: none;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+          }
+          .active:hover {
+            color: #46a358;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  .summer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    .summer-cont {
+      flex-direction: column;
+
+      .summer-cont-text {
+        text-align: center;
+      }
+    }
+  }
+  .ourBlogs .ourPost-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .ourPost-mini{
+      width: 100%;
+
+      .ourPost-img{
+        width: 100%;
+      }
+    }
+  }
+}

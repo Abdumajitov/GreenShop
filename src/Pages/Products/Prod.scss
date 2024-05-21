@@ -1,11 +1,134 @@
 .products {
   display: flex;
-  align-items: center;
-  flex-grow: 1;
   gap: 50px;
+  justify-content: space-between;
+  margin-top: 50px;
 }
 .bottom-product {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
+}
+.leftCategory {
+  width: 28%;
+  .categoryAbzor {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #46a358;
+
+    .categoryAbzor-cont {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 10px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+
+      button{
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+    }
+    .categoryAbzor-cont:hover {
+      color: #46a358;
+      button{
+        color: #46a358;
+      }
+    }
+  }
+  .leftCategory-size {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .categoryAbzor-cont {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 10px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .categoryAbzor-cont:hover {
+      color: #46a358;
+    }
+    .sizeCategory {
+      padding: 0px 10px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+}
+.categoryAbzor-pp {
+  font-weight: 900;
+  font-size: 18px;
+  color: #3d3d3d;
+}
+.rigtBar {
+  width: 70%;
+
+  .loading {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 40px;
+  }
+}
+.range {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  .rangePrice {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-weight: 600;
+    p {
+      font-weight: 400;
+    }
+    hr {
+      width: 50px;
+      height: 3px;
+    }
+    span {
+      color: #46a358;
+    }
+  }
+}
+.filter {
+  display: flex;
+  margin-top: 20px;
+  gap: 5px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background-color: #46a358;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+@media (max-width: 700px) {
+  .leftCategory {
+    display: none;
+  }
+  .bottom-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
 }
