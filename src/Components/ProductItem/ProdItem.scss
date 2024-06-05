@@ -1,5 +1,4 @@
 .greenshop-product {
-  width: 250px;
   z-index: 1;
 }
 .product-img {
@@ -67,8 +66,27 @@
     font-family: "Roboto", sans-serif;
   }
 }
+.product-sale-bag {
+  display: none;
+}
 @media (max-width: 700px) {
-  .greenshop-product {
-    width: 220px;
+  .imger {
+    width: 100%;
+  }
+  .bottom-img {
+    display: none;
+  }
+  .product-sale {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .product-sale-bag {
+      display: block;
+
+      .bottom-imger12 {
+        width: 24px;
+      }
+    }
   }
 }

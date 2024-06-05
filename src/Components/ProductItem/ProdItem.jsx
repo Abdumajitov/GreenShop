@@ -55,12 +55,22 @@ function ProdItem({ img, name, price, id, addKorzina, liked }) {
         </div>
       </div>
       <div onClick={goProdPage} className="product-sale">
-        <p name="name" className="product-name">
-          {name}
-        </p>
-        <p name="price" className="product-price">
-          ${price}
-        </p>
+        <div className="product-sale-p">
+          <p name="name" className="product-name">
+            {name}
+          </p>
+          <p name="price" className="product-price">
+            ${price}
+          </p>
+        </div>
+        <div className="product-sale-bag">
+          <img
+            onClick={() => addKorzina({ name, price, img, id })}
+            className="bottom-imger12"
+            src={ShopingBag}
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );

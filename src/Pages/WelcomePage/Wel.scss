@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: 30px 30px;
 
     position: relative;
 
@@ -54,7 +54,7 @@
 }
 @media (max-width: 700px) {
   .welcome-cont {
-    background-color: #46a35939;
+    background-color: #46a3593f;
     border-radius: 30px;
     flex-direction: column-reverse;
     overflow: hidden;
@@ -80,5 +80,6 @@
     z-index: 1;
     opacity: 0.6;
     position: absolute;
+    right: -80px;
   }
 }
