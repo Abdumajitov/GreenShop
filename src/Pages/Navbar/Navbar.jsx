@@ -46,9 +46,6 @@ function Navbar() {
       return { ...prev, [name]: value, id: Date.now() };
     });
   };
-  useEffect(() => {
-    btnHand();
-  }, []);
   const btnHand = () => {
     if (userData.email && userData.password) {
       localStorage.setItem("user", JSON.stringify(userData));
@@ -56,6 +53,9 @@ function Navbar() {
     }
     setBtnFalse(false);
   };
+  useEffect(() => {
+    btnHand();
+  }, []);
 
   return (
     <div className="navBig">

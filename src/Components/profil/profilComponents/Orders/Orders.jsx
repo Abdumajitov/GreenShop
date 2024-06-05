@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
 function Orders() {
-  return (
-    <div>
-      User Order
-    </div>
-  )
+  const {orderProd} = useSelector((state) => state.productSlice);
+  console.log(orderProd);
+  return <div>User Order</div>;
 }
 
-export default Orders
+export default Orders;
