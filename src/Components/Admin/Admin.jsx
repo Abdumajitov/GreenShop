@@ -1,6 +1,5 @@
 import React from "react";
 import "./Admin.scss";
-import AddProduct from "../../miniComponet/AddProduct/AddProduct";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -9,7 +8,6 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import HelpIcon from "@mui/icons-material/Help";
-import LogoutIcon from "@mui/icons-material/Logout";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 

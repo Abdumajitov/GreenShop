@@ -224,12 +224,8 @@
   .navBig .cont .navbar .menu {
     display: none;
   }
-  .navBig .cont .navbar .rightLogin {
-    display: none;
-  }
   .media {
-    padding: 0px 10px;
-    width: 100%;
+    display: none;
   }
   .mediaInput {
     display: block;
@@ -243,6 +239,17 @@
     gap: 2rem;
   }
   .logo {
-    display: none;
+    width: 120px;
+  }
+  .navBig .navbar .rightLogin .userProfil{
+    width: 30px;
+    height: 30px;
+  }
+  .navBig .navbar .rightLogin .search{
+    width: 20px;
+  }
+  .navBig  .loginModal {
+    top: 100px;
+    left: 0;
   }
 }

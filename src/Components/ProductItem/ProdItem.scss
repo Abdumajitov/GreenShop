@@ -73,6 +73,9 @@
   .imger {
     width: 100%;
   }
+  .greenshop-product {
+    z-index: 1;
+  }
   .bottom-img {
     display: none;
   }
@@ -85,7 +88,9 @@
       display: block;
 
       .bottom-imger12 {
-        width: 24px;
+        width: 20px;
+        z-index: 9;
+        cursor: pointer;
       }
     }
   }

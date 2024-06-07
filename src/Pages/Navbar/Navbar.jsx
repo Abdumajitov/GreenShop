@@ -62,7 +62,9 @@ function Navbar() {
       <div className="cont">
         <div className="navbar">
           <div className="logo">
-            <img src={login} alt="" />
+            <NavLink to={"/"}>
+              <img className="logo" src={login} alt="" />
+            </NavLink>
           </div>
           <div className="media">
             <input type="text" className="mediaInput" />
