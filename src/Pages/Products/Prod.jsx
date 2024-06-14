@@ -5,7 +5,6 @@ import ProdItem from "../../Components/ProductItem/ProdItem";
 import {
   updateFilteredData,
   korzinaProd,
-  likeAdd,
 } from "../../toolkit/userSlice/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -22,18 +21,13 @@ import useCateHook from "../../Hooks/CategoryHook/CateHook";
 
 function Prod() {
   const dispatch = useDispatch();
-  const { korzinaProduct, likeAdder } = useSelector(
+  const { korzinaProduct } = useSelector(
     (state) => state.productSlice
   );
   const { products, filterProduct } = useSelector(
     (state) => state.productSlice
   );
   const [cartItem, setCartItem] = useState(korzinaProduct);
-  const [like, setLike] = useState(likeAdd);
-
-  useEffect(() => {
-    dispatch(likeAdd(like));
-  }, [like]);
 
   useEffect(() => {
     dispatch(korzinaProd(cartItem));
@@ -49,10 +43,6 @@ function Prod() {
     } else {
       setCartItem([...cartItem, { ...prod, qty: 1 }]);
     }
-  };
-
-  const liked = (likeProd) => {
-    setLike(likeProd);
   };
 
   const filterHandler = () => {
@@ -207,7 +197,6 @@ function Prod() {
                   key={i}
                   {...product}
                   addKorzina={addKorzina}
-                  liked={liked}
                 />
               );
             })}

@@ -6,7 +6,7 @@ import heart from "../../assets/PageImg/logo/heart 1.png";
 
 import { useNavigate } from "react-router-dom";
 
-function ProdItem({ img, name, price, id, addKorzina, liked }) {
+function ProdItem({ img, name, price, id, addKorzina }) {
   const navigate = useNavigate();
   const goProdPage = () => {
     navigate("/productItem");

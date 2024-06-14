@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./Order.scss";
-import prodImg from "../../../assets/ProductImg/product-20-320x320 1.png";
 import thankImg from "../../../assets/PageImg/login/Group (5).png";
-import { useSelector, useDispatch } from "react-redux";
-import { orProd } from "../../../toolkit/userSlice/productSlice";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
-function Order({ total,setModal }) {
+function Order({ total }) {
   const [goOrder, setGoOrder] = useState([]);
-  const dispatch = useDispatch();
-  console.log(goOrder);
 
-  const goProfilOrder = () => {
-    setModal(false)
+  const goProfilOrder = async () => {
     setGoOrder(korzinaProduct);
-    if (goOrder) {
-      dispatch(orProd([...goOrder]));
-    }else{
-      console.log("wait");
-    }
+    const data = await axios.post("http://localhost:3000/order", goOrder);
   };
+
+  useEffect(() => {
+    goProfilOrder();
+  }, [goOrder]);
 
   const { korzinaProduct } = useSelector((state) => state.productSlice);
 

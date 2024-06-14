@@ -1,21 +1,18 @@
 import React, { useEffect } from "react";
 import "./Addres.scss";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
 function Addres() {
   const user = JSON.parse(localStorage.getItem("user"));
-  const accProfilDetal = JSON.parse(localStorage.getItem("accDetal"));
-  const [profilImg, setPtofilImg] = useState({
-    img: "",
-  });
+  const accProfilDetal = JSON.parse(localStorage.getItem("accDetalAddres"));
   const [accDetals, setAccDetals] = useState({
     firstName: "",
     lastName: "",
     email: user.email,
     userName: "",
+    sity: "",
     curPassword: user.password,
     conPassword: "",
     nummber: "",
@@ -36,39 +33,14 @@ function Addres() {
     });
   };
 
-  const profilImger = JSON.parse(localStorage.getItem("profilImg"));
-
-  const imgChange = (e) => {
-    const name = e.target.name;
-    const value =
-      e.target.type === "file"
-        ? URL.createObjectURL(e.target.files[0])
-        : e.target.value;
-
-    setPtofilImg((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
-
   const [alert, setAlert] = useState(false);
 
-  const saveChange = () => {
-    setAlert((prev) => !prev);
-    localStorage.setItem("profilImg", JSON.stringify(profilImg));
-  };
   const saveDetal = () => {
-    if (
-      accDetals.firstName &&
-      accDetals.lastName &&
-      accDetals.nummber &&
-      accDetals.userName
-    ) {
-      localStorage.setItem("accDetal", JSON.stringify(accDetals));
+    if (accDetals.firstName && accDetals.lastName && accDetals.userName) {
+      localStorage.setItem("accDetalAddres", JSON.stringify(accDetals));
       setAlert((prev) => !prev);
     }
   };
-
-  const remuveImg = () => {};
 
   setTimeout(() => {
     setAlert(false);
@@ -122,6 +94,7 @@ function Addres() {
               onChange={accDetal}
               name="lastName"
               type="text"
+              placeholder="Last name"
             />
           </div>
           <div className="firstName">
@@ -129,7 +102,7 @@ function Addres() {
             <input
               value={accDetals.lastName}
               onChange={accDetal}
-              name="lastName"
+              name="sity"
               type="text"
               placeholder="Town / City"
             />

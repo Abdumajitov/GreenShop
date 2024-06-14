@@ -5,7 +5,7 @@ const initialState = {
       {
          id: 1,
          name: "Barberton Daisy",
-         img: "https://atlas-content-cdn.pixelsquid.com/stock-images/potted-plant-flower-pot-mdm41mF-600.jpg",
+         img: "https://png.pngtree.com/png-vector/20240310/ourmid/pngtree-house-plants-on-pots-png-image_11931547.png",
          price: "119.00",
          about: "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit.Donec ac tempus ante.Fusce ultricies massa massa.Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi.Cras neque metus, consequat et blandit et, luctus a nunc.Etiam gravida vehicula tellus, in imperdiet ligula euismod eget.The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ",
          size: "Large",
@@ -32,7 +32,7 @@ const initialState = {
       {
          id: 4,
          name: "Beach Spider Lily",
-         img: "https://atlas-content-cdn.pixelsquid.com/stock-images/house-plant-flower-pot-a86LEY0-600.jpg",
+         img: "https://png.pngtree.com/png-vector/20240207/ourmid/pngtree-indoor-plant-flowerpot-png-image_11669796.png",
          price: "129.00",
          about: "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit.Donec ac tempus ante.Fusce ultricies massa massa.Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi.Cras neque metus, consequat et blandit et, luctus a nunc.Etiam gravida vehicula tellus, in imperdiet ligula euismod eget.The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ",
          size: "Large",
@@ -41,7 +41,7 @@ const initialState = {
       {
          id: 5,
          name: "Blushing Bromeliad",
-         img: "https://atlas-content-cdn.pixelsquid.com/stock-images/house-plant-flower-pot-a86LEY0-600.jpg",
+         img: "https://img.freepik.com/premium-photo/photo-modern-living-room-design-with-indoor-plants_763111-132519.jpg",
          price: "139.00",
          about: "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit.Donec ac tempus ante.Fusce ultricies massa massa.Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi.Cras neque metus, consequat et blandit et, luctus a nunc.Etiam gravida vehicula tellus, in imperdiet ligula euismod eget.The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ",
          size: "small",
@@ -77,7 +77,7 @@ const initialState = {
       {
          id: 9,
          name: "Blushing Bromeliad",
-         img: "https://atlas-content-cdn.pixelsquid.com/stock-images/potted-plant-flower-pot-rAGd4O2-600.jpg",
+         img: "https://png.pngtree.com/png-vector/20240207/ourmid/pngtree-indoor-plant-flowerpot-png-image_11669796.png",
          price: "139.00",
          about: "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit.Donec ac tempus ante.Fusce ultricies massa massa.Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi.Cras neque metus, consequat et blandit et, luctus a nunc.Etiam gravida vehicula tellus, in imperdiet ligula euismod eget.The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ",
          size: "small",
@@ -86,8 +86,6 @@ const initialState = {
    ],
    filterProduct: [],
    korzinaProduct: [],
-   likeAdder: [],
-   orderProduct: [],
 };
 
 const userSlice = createSlice({
@@ -109,18 +107,10 @@ const userSlice = createSlice({
       korzinaProd: (state, { payload }) => {
          state.korzinaProduct = payload;
       },
-
-      likeAdd: (state, { payload }) => {
-         state.likeAdder = payload;
-      },
-
-      orProd: (state, { payload }) => {
-         state.orderProduct = payload;
-      },
    },
 });
 
 export default userSlice.reducer;
 
-export const { addProduct, saveDataToState, updateFilteredData, korzinaProd, likeAdd, orProd } =
+export const { addProduct, saveDataToState, updateFilteredData, korzinaProd, } =
    userSlice.actions;
