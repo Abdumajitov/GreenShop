@@ -58,7 +58,7 @@ function Korzina() {
       );
    };
    const thank = () => {
-      if (korzinaProduct) {
+      if (korzinaProduct.length >= 1) {
          setModal(true);
       } else {
          setModal(false);
@@ -173,11 +173,10 @@ function Korzina() {
                </div>
             </div>
          </div>
-         <div className="order">{modal && <Order total={total} />}</div>
+         <div className="order">{modal && <Order total={total} setModal={setModal} />}</div>
          {modal && (
             <div
                onClick={modalClose}
-               setModal={setModal}
                className="modal"
             ></div>
          )}

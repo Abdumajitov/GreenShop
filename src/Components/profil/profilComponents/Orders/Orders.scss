@@ -1,0 +1,40 @@
+.orders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+.order-cont {
+  border: 1px solid #00e22d3c;
+  padding: 5px;
+  border-radius: 20px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+
+  .order-lol{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .order-cont-name {
+    width: 150px;
+  }
+
+  .order-cont-img {
+    img {
+      width: 70px;
+    }
+  }
+  .strelka1 {
+    transform: rotate(90deg);
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .strelka2 {
+    transform: rotate(-90deg);
+    cursor: pointer;
+  }
+}

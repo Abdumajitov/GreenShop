@@ -2,31 +2,15 @@ import React from "react";
 import "./ProdItem.scss";
 import serach from "../../assets/PageImg/logo/search-interface-symbol.png";
 import ShopingBag from "../../assets/PageImg/logo/shopping-bag.png";
-import heart from "../../assets/PageImg/logo/heart 1.png";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import { useNavigate } from "react-router-dom";
-
-function ProdItem({ img, name, price, id, addKorzina }) {
+function ProdItem({ img, name, price, id, cartItem, addKorzina, like }) {
   const navigate = useNavigate();
   const goProdPage = () => {
     navigate("/productItem");
   };
-
-  const delKorzina = (prod) => {
-    const existing = cartItem.find((item) => item.id === prod.id);
-
-    if (existing.qty === 1) {
-      setCartItem((prev) => {
-        return prev.filter((item) => item.id !== prod.id);
-      });
-    } else {
-      setCartItem((prev) => {
-        return prev.map((item) =>
-          item.id === prod.id ? { ...item, qty: item.qty - 1 } : item
-        );
-      });
-    }
-  };
+  console.log([...cartItem].like === true);
 
   return (
     <div key={id} className="greenshop-product">
@@ -45,12 +29,14 @@ function ProdItem({ img, name, price, id, addKorzina }) {
             src={ShopingBag}
             alt=""
           />
-          <img
-            src={heart}
-            alt=""
-            onClick={() => liked({ name, price, img, id })}
-            className="bottom-imger"
-          />
+          <p
+            onClick={() => like({ name, price, img, id })}
+            className={
+              [...cartItem].like === true ? "bottom-imger-like" : "bottom-imger"
+            }
+          >
+            <FavoriteIcon />
+          </p>
           <img className="bottom-imger2" src={serach} alt="" />
         </div>
       </div>

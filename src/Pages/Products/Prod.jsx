@@ -21,9 +21,7 @@ import useCateHook from "../../Hooks/CategoryHook/CateHook";
 
 function Prod() {
   const dispatch = useDispatch();
-  const { korzinaProduct } = useSelector(
-    (state) => state.productSlice
-  );
+  const { korzinaProduct } = useSelector((state) => state.productSlice);
   const { products, filterProduct } = useSelector(
     (state) => state.productSlice
   );
@@ -42,6 +40,18 @@ function Prod() {
       setCartItem(newItem);
     } else {
       setCartItem([...cartItem, { ...prod, qty: 1 }]);
+    }
+  };
+
+  const like = (prod) => {
+    const existing = cartItem.find((item) => item.id === prod.id);
+    if (existing) {
+      const newItem = cartItem.map((item) =>
+        item.id === prod.id ? { ...item, like: item.like === false } : item
+      );
+      setCartItem(newItem);
+    } else {
+      setCartItem([...cartItem, { ...prod, like: true }]);
     }
   };
 
@@ -195,6 +205,8 @@ function Prod() {
               return (
                 <ProdItem
                   key={i}
+                  like={like}
+                  cartItem={cartItem}
                   {...product}
                   addKorzina={addKorzina}
                 />

@@ -17,9 +17,19 @@
     padding-top: 15px;
     .bottom-imger {
       width: 20px;
+      color: #23232387;
       position: absolute;
-      margin-left: 10px;
       margin-left: 45%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .bottom-imger-like {
+      width: 20px;
+      color: #ff000087;
+      position: absolute;
+      margin-left: 45%;
+      font-size: 20px;
       cursor: pointer;
       transition: all 0.3s;
     }

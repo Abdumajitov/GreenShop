@@ -11,6 +11,7 @@ import HelpIcon from "@mui/icons-material/Help";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 function Profil() {
   const navigate = useNavigate();
@@ -74,8 +75,8 @@ function Profil() {
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
           >
-            <DownloadForOfflineIcon />
-            Downloads
+            <SettingsIcon />
+            Setting
           </NavLink>
           <NavLink
             to={"/profil/support"}

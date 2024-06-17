@@ -86,6 +86,7 @@ const initialState = {
    ],
    filterProduct: [],
    korzinaProduct: [],
+   checkProd: [],
 };
 
 const userSlice = createSlice({
@@ -107,10 +108,14 @@ const userSlice = createSlice({
       korzinaProd: (state, { payload }) => {
          state.korzinaProduct = payload;
       },
+
+      saleProduct: (state, { payload }) => {
+         state.checkProd = payload
+      }
    },
 });
 
 export default userSlice.reducer;
 
-export const { addProduct, saveDataToState, updateFilteredData, korzinaProd, } =
+export const { addProduct, saveDataToState, updateFilteredData, korzinaProd, saleProduct } =
    userSlice.actions;
