@@ -1,0 +1,106 @@
+.adminUser-cont {
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  border: 1px solid #d4d4d1;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.Adminusers-child {
+  border-radius: 10px;
+  border: 1px solid #d4d4d1;
+  padding: 10px;
+  margin-top: 20px;
+
+  .adminUser-detal {
+    display: flex;
+    padding: 10px 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    .custom {
+      width: 20%;
+      text-align: center;
+    }
+  }
+  .adminUser-one {
+    border-radius: 10px;
+    border: 1px solid #d4d4d1;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .adminUser-ones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #d4d4d1;
+    .profil-imger{
+      text-align: center;
+    }
+    .phone {
+      width: 10%;
+      text-align: center;
+    }
+
+    .profil-img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.adminUser-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .addUser-cont {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #46a358;
+    color: #46a358;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .addUser-cont:hover {
+    background-color: #46a358;
+    color: #fff;
+  }
+}
+
+.analistik {
+  background-color: #fff;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .analytics {
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
+.analistik-search {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  justify-content: space-between;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 0px 5px;
+  background-color: #fff;
+
+  input {
+    border: none;
+    width: 100%;
+    padding: 10px;
+  }
+}

@@ -5,12 +5,11 @@ import ShopingBag from "../../assets/PageImg/logo/shopping-bag.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import { useNavigate } from "react-router-dom";
-function ProdItem({ img, name, price, id, cartItem, addKorzina, like }) {
+function ProdItem({ img, name, price, id, addKorzina }) {
   const navigate = useNavigate();
   const goProdPage = () => {
     navigate("/productItem");
   };
-  console.log([...cartItem].like === true);
 
   return (
     <div key={id} className="greenshop-product">
@@ -30,10 +29,7 @@ function ProdItem({ img, name, price, id, cartItem, addKorzina, like }) {
             alt=""
           />
           <p
-            onClick={() => like({ name, price, img, id })}
-            className={
-              [...cartItem].like === true ? "bottom-imger-like" : "bottom-imger"
-            }
+            className="bottom-imger"
           >
             <FavoriteIcon />
           </p>

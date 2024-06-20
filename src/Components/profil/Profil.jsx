@@ -87,7 +87,7 @@ function Profil() {
             <HelpIcon />
             Support
           </NavLink>
-          <NavLink to={"/admin"}>go to adminPanel</NavLink>
+          <NavLink to={"/admin/Analistik"}>go to adminPanel</NavLink>
         </div>
         <div className="logOut">
           <button onClick={remuve} className="accauntLogout">

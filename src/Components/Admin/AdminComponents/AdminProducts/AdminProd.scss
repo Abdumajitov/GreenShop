@@ -1,0 +1,73 @@
+.bottom-product2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+.product-sale{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .redactor{
+        padding: 5px;
+        color: #15411e;
+        cursor: pointer;
+    }
+}
+.adminProd {
+  padding: 20px 30px;
+}
+.greenshop-product {
+  z-index: 1;
+}
+.product-img {
+  position: relative;
+  background-color: #fbfbfb;
+  overflow: hidden;
+  .imger {
+    width: 100%;
+  }
+}
+.product-sale {
+  margin-top: 12px;
+
+  .product-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3d3d3d;
+    font-family: "Roboto", sans-serif;
+  }
+  .product-price {
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #46a358;
+    font-family: "Roboto", sans-serif;
+  }
+}
+@media (max-width: 700px) {
+  .imger {
+    width: 100%;
+  }
+  .greenshop-product {
+    z-index: 1;
+  }
+  .bottom-img {
+    display: none;
+  }
+  .product-sale {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .product-sale-bag {
+      display: block;
+
+      .bottom-imger12 {
+        width: 20px;
+        z-index: 9;
+        cursor: pointer;
+      }
+    }
+  }
+}

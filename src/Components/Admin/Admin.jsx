@@ -3,13 +3,12 @@ import "./Admin.scss";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
-import HelpIcon from "@mui/icons-material/Help";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
+import CategoryIcon from "@mui/icons-material/Category";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 function Admin() {
   const [loading, setLoading] = useState(false);
@@ -22,10 +21,19 @@ function Admin() {
   return (
     <div className="admin">
       <div className="leftProfil">
-        <p className="myAccaunt">Admin Panel</p>
+        <p style={{color:'#fff'}} className="myAccaunt">Admin Panel</p>
         <div className="accauntDitels">
           <NavLink
-            to={"/admin/detal"}
+            to={"/admin/Analistik"}
+            className={({ isActive }) =>
+              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
+            }
+          >
+            <AssessmentIcon />
+            Analytics
+          </NavLink>
+          <NavLink
+            to={"/admin/users"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
@@ -34,12 +42,12 @@ function Admin() {
             Users
           </NavLink>
           <NavLink
-            to={"/admin/addres"}
+            to={"/admin/Prod"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
           >
-            <LocationOnIcon />
+            <CategoryIcon />
             Products
           </NavLink>
           <NavLink
@@ -52,23 +60,15 @@ function Admin() {
             Orders
           </NavLink>
           <NavLink
-            to={"/admin/download"}
-            className={({ isActive }) =>
-              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
-            }
-          >
-            <DownloadForOfflineIcon />
-            Downloads
-          </NavLink>
-          <NavLink
             to={"/admin/support"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"
             }
           >
-            <HelpIcon />
-            Support
+            <SettingsIcon />
+            Setting
           </NavLink>
+          <NavLink to={"/"}>Home</NavLink>
         </div>
       </div>
       <div className="rightAccaunt">

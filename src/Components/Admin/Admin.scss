@@ -1,13 +1,12 @@
 .admin {
   display: flex;
-  gap: 30px;
   font-family: "Roboto", sans-serif;
   position: relative;
   top: 0;
 
   .leftProfil {
     font-family: "Roboto", sans-serif;
-    background-color: #b6b5b543;
+    background-color: #262626;
     height: 100vh;
     width: 13%;
     padding: 10px 20px;
@@ -28,7 +27,7 @@
         align-items: center;
         gap: 1rem;
         padding: 9px 18px;
-        color: #727272;
+        color: #cbc9c9;
       }
       .accauntDetal-item-active {
         cursor: pointer;
@@ -42,13 +41,9 @@
     }
   }
   .rightAccaunt {
-    padding: 20px 40px;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    height: 100vh;
+    background-color: #eae9e9a7;
   }
   .accauntLogout {
     padding: 9px 18px;

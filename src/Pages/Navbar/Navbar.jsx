@@ -87,7 +87,7 @@ function Navbar() {
                 to="/admin"
                 className={({ isActive }) => (isActive ? "active" : "link")}
               >
-                Plant Care
+                Admin Panel
               </NavLink>
             ) : (
               ""

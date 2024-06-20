@@ -1,0 +1,74 @@
+.AdminAnalis {
+  .analistik {
+    background-color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .analytics {
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .analistik-search {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      justify-content: space-between;
+      border: 1px solid #d4d4d4;
+      border-radius: 5px;
+      overflow: hidden;
+      padding: 0px 5px;
+
+      input {
+        border: none;
+        width: 100%;
+        padding: 10px;
+      }
+    }
+  }
+  .analistika-cont {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0px 30px;
+    margin-top: 30px;
+
+    .analistik-child{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 30px;
+        background-color: #fff;
+        border-radius: 10px;
+
+        .analistik-text{
+
+            .analistik-p{
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .analistik-price{
+                font-size: 25px;
+                font-weight: 600;
+                margin-top: 3px;
+            }
+        }
+
+        .icon{
+            color: #EA580C;
+        }
+        .icon2{
+            color: #7C3AED;
+        }
+        .icon3{
+            color: #059669;
+        }
+        .icon4{
+            color: #9333EA;
+        }
+    }
+  }
+}

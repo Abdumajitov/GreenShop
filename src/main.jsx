@@ -34,6 +34,16 @@ const Support = lazy(() =>
 const ProductItem = lazy(() => import("./Components/producPage/ProductPage"));
 const Korzina = lazy(() => import("./Components/Korzina/Korzina"));
 
+const AdminUsers = lazy(() =>
+  import("./Components/Admin/AdminComponents/AdminUsers/AdminUser")
+);
+const AdminAnalistik = lazy(() =>
+  import("./Components/Admin/AdminComponents/AdminAnalistik/AdminAnalis")
+);
+const AdminProd = lazy(() =>
+  import("./Components/Admin/AdminComponents/AdminProducts/AdminProd")
+);
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -96,16 +106,16 @@ const router = createBrowserRouter([
     element: <Admin />,
     children: [
       {
-        path: "/admin/detal",
-        element: <AccaountDetal />,
+        path: "/admin/users",
+        element: <AdminUsers />,
       },
       {
-        path: "/admin/addres",
-        element: <Addres />,
+        path: "/admin/Prod",
+        element: <AdminProd />,
       },
       {
-        path: "/admin/download",
-        element: <Download />,
+        path: "/admin/Analistik",
+        element: <AdminAnalistik />,
       },
       {
         path: "/admin/orders",

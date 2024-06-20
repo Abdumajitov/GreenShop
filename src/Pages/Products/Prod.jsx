@@ -43,18 +43,6 @@ function Prod() {
     }
   };
 
-  const like = (prod) => {
-    const existing = cartItem.find((item) => item.id === prod.id);
-    if (existing) {
-      const newItem = cartItem.map((item) =>
-        item.id === prod.id ? { ...item, like: item.like === false } : item
-      );
-      setCartItem(newItem);
-    } else {
-      setCartItem([...cartItem, { ...prod, like: true }]);
-    }
-  };
-
   const filterHandler = () => {
     const newData = products.filter(
       (home) => home.price >= value[0] && home.price <= value[1]
@@ -205,7 +193,6 @@ function Prod() {
               return (
                 <ProdItem
                   key={i}
-                  like={like}
                   cartItem={cartItem}
                   {...product}
                   addKorzina={addKorzina}
