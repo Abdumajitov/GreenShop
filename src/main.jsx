@@ -43,6 +43,7 @@ const AdminAnalistik = lazy(() =>
 const AdminProd = lazy(() =>
   import("./Components/Admin/AdminComponents/AdminProducts/AdminProd")
 );
+const prodPage = lazy(() => import("./Components/ProductItem/ProdItem"));
 
 const router = createBrowserRouter([
   {

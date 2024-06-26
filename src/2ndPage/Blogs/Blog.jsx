@@ -33,7 +33,6 @@ function Blog() {
               <p className="ourPost-text-about1">
                 Cacti are succulents are easy care plants for any home or patio.{" "}
               </p>
-              <NavLink>Read More</NavLink>
             </div>
           </div>
           <div className="ourPost-mini-mini1">
@@ -47,7 +46,6 @@ function Blog() {
               <p className="ourPost-text-about1">
                 Best in hanging baskets. Prefers medium to high light..{" "}
               </p>
-              <NavLink>Read More</NavLink>
             </div>
             <img
               src="https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FTop_10_low_watering_plants_banner_5fb822ebad.png&w=3840&q=75"
@@ -70,7 +68,6 @@ function Blog() {
                 Cacti and succulents thrive in containers and because most
                 are...{" "}
               </p>
-              <NavLink>Read More</NavLink>
             </div>
           </div>
           <div className="ourPost-mini-mini1">
@@ -82,7 +79,6 @@ function Blog() {
               <p className="ourPost-text-about1">
                 The benefits of houseplants are endless. In addition to...{" "}
               </p>
-              <NavLink>Read More</NavLink>
             </div>
             <img
               src="https://t4.ftcdn.net/jpg/01/33/95/77/360_F_133957781_KPa4YoEVSCHfcWEjIhE7ctNCG2j6U8qf.jpg"

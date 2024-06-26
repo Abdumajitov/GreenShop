@@ -1,255 +1,300 @@
 .navBig {
-   width: 100%;
-   position: relative;
-   .cont {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 10px;
-   }
+  width: 100%;
+  position: relative;
+  .cont {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
 
-   .navbar {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #46a35921;
+
+    .menu {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #46a35921;
+      gap: 48px;
 
-      .menu {
-         display: flex;
-         align-items: center;
-         gap: 48px;
-
-         .link {
-            text-decoration: none;
-            font-family: "Roboto", sans-serif;
-            color: #3d3d3d;
-            transition: all 0.3s;
-         }
-         .active {
-            text-decoration: none;
-            padding: 14px 0px;
-            font-family: "Roboto", sans-serif;
-            color: #3d3d3d;
-            font-weight: 600;
-            border-bottom: 1px solid #46a358;
-         }
-         .bottom {
-            border-bottom: 1px solid #46a358;
-         }
+      .link {
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+        color: #3d3d3d;
+        transition: all 0.3s;
+        border-bottom: 1px solid transparent;
       }
-      .rightLogin {
-         display: flex;
-         align-items: center;
-         gap: 20px;
-
-         .shopBag {
-            display: flex;
-            position: relative;
-
-            .shopBag-p {
-               position: absolute;
-               top: -6px;
-               right: -6px;
-               z-index: 10;
-               background-color: #46a358;
-               border-radius: 50%;
-               padding: 2px 6px;
-               color: #fff;
-               font-size: 12px;
-            }
-         }
-         .userProfil {
-            width: 40px;
-            height: 40px;
-            background-color: #46a358;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 500;
-            font-family: "Roboto", sans-serif;
-            overflow: hidden;
-         }
-
-         .login {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 6px 16px;
-            border-radius: 6px;
-            background-color: #46a358;
-            cursor: pointer;
-            border: none;
-            color: #fff;
-            font-family: "Roboto", sans-serif;
-         }
-         .search {
-            width: 24px;
-            cursor: pointer;
-         }
+      .active {
+        text-decoration: none;
+        padding: 14px 0px;
+        font-family: "Roboto", sans-serif;
+        color: #3d3d3d;
+        font-weight: 600;
+        border-bottom: 1px solid #46a358;
       }
-   }
-   .owelay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      height: 100vh;
-      background-color: #00000038;
-   }
-   .loginModal {
-      position: absolute;
-      left: 40%;
-      z-index: 11;
-      top: 200px;
-      width: 400px;
-      padding: 50px 50px;
-      border-bottom: 5px solid #46a358;
-
-      background-color: #fff;
-
-      .login-register {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         gap: 12px;
-         p {
-            color: #3d3d3d;
-            font-size: 20px;
-            font-weight: 500;
-            font-family: "Roboto", sans-serif;
-            cursor: pointer;
-            transition: all 0.4s ease;
-         }
-         p:hover {
-            color: #46a358;
-         }
-         .loginLine {
-            width: 1px;
-            height: 20px;
-            background-color: #3d3d3d49;
-         }
+      .bottom {
+        border-bottom: 1px solid #46a358;
       }
-      .login-inputs {
-         display: flex;
-         flex-direction: column;
-         gap: 16px;
+    }
+    .rightLogin {
+      display: flex;
+      align-items: center;
+      gap: 20px;
 
-         p {
-            margin-top: 50px;
-            color: #3d3d3d;
-            font-size: 14px;
-            font-weight: 500;
-            font-family: "Roboto", sans-serif;
-         }
+      .search-cont {
+        position: relative;
+        display: flex;
+        justify-content: end;
+        transition: all 0.3s;
 
-         .login-input {
-            display: flex;
-            flex-direction: column;
-            gap: 17px;
-
-            input {
-               padding: 12px 14px;
-               border: 1px solid #eaeaea;
-               border-radius: 5px;
-               font-family: "Roboto", sans-serif;
-            }
-         }
+        .search-in {
+          opacity: 0;
+          top: 0;
+          position: absolute;
+          z-index: -1;
+          transition: all 0.3s;
+        }
       }
-      .login-btn {
-         width: 100%;
-         .login-but {
-            width: 100%;
-            padding: 13px 0px;
-            background-color: #46a358;
-            font-family: "Roboto", sans-serif;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 27px;
-         }
-      }
-      .or {
-         display: flex;
-         align-items: center;
-         gap: 10px;
-         margin-top: 40px;
+      .search-cont2 {
+        position: relative;
+        display: flex;
+        transition: all 0.3s;
 
-         p {
-            width: 100%;
-            color: #3d3d3d;
-            font-size: 14px;
-            font-family: "Roboto", sans-serif;
-         }
-         .line {
-            width: 100%;
-            height: 1px;
-            background-color: #3d3d3d3b;
-         }
+        .search-in {
+          opacity: 0;
+          left: 0;
+          position: absolute;
+          z-index: -1;
+          transition: all 0.3s;
+        }
+        .search-in2 {
+          opacity: 1;
+          top: 40px;
+          position: absolute;
+          z-index: 1;
+          left: -120px;
+          padding: 5px;
+          width: 250px;
+          transition: all 0.3s;
+          border: 1px solid #3d3d3d;
+          border-radius: 5px;
+          padding: 8px 10px;
+        }
       }
-      .goo-face {
-         display: flex;
-         flex-direction: column;
-         gap: 15px;
-         margin-top: 25px;
 
-         button {
-            width: 100%;
-            padding: 13px 0px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #ffffff;
-            font-family: "Roboto", sans-serif;
-            color: #000000;
-            font-size: 16px;
-            font-weight: 400;
-            border: 1px solid #eaeaea;
-            cursor: pointer;
-            border-radius: 5px;
-         }
+      .shopBag {
+        display: flex;
+        position: relative;
+
+        .shopBag-p {
+          position: absolute;
+          top: -6px;
+          right: -6px;
+          z-index: 10;
+          background-color: #46a358;
+          border-radius: 50%;
+          padding: 2px 6px;
+          color: #fff;
+          font-size: 12px;
+        }
       }
-   }
+      .userProfil {
+        width: 40px;
+        height: 40px;
+        background-color: #46a358;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+        overflow: hidden;
+      }
+
+      .login {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 16px;
+        border-radius: 6px;
+        background-color: #46a358;
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+      }
+      .search {
+        width: 24px;
+        cursor: pointer;
+      }
+    }
+  }
+  .owelay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    height: 100vh;
+    background-color: #00000038;
+  }
+  .loginModal {
+    position: absolute;
+    left: 40%;
+    z-index: 11;
+    top: 200px;
+    width: 400px;
+    padding: 50px 50px;
+    border-bottom: 5px solid #46a358;
+
+    background-color: #fff;
+
+    .login-register {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      p {
+        color: #3d3d3d;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+      p:hover {
+        color: #46a358;
+      }
+      .loginLine {
+        width: 1px;
+        height: 20px;
+        background-color: #3d3d3d49;
+      }
+    }
+    .login-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      p {
+        margin-top: 50px;
+        color: #3d3d3d;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .login-input {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+
+        input {
+          padding: 12px 14px;
+          border: 1px solid #eaeaea;
+          border-radius: 5px;
+          font-family: "Roboto", sans-serif;
+        }
+      }
+    }
+    .login-btn {
+      width: 100%;
+      .login-but {
+        width: 100%;
+        padding: 13px 0px;
+        background-color: #46a358;
+        font-family: "Roboto", sans-serif;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 27px;
+      }
+    }
+    .or {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+
+      p {
+        width: 100%;
+        color: #3d3d3d;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+      }
+      .line {
+        width: 100%;
+        height: 1px;
+        background-color: #3d3d3d3b;
+      }
+    }
+    .goo-face {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 25px;
+
+      button {
+        width: 100%;
+        padding: 13px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        color: #000000;
+        font-size: 16px;
+        font-weight: 400;
+        border: 1px solid #eaeaea;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    }
+  }
 }
 .mediaInput {
-   display: none;
+  display: none;
 }
 @media (max-width: 700px) {
-   .navBig .cont .navbar .menu {
-      display: none;
-   }
-   .media {
-      display: none;
-   }
-   .mediaInput {
-      display: block;
-      width: 100%;
-      padding: 10px 10px;
-      border-radius: 10px;
-      background-color: #eceaeab7;
-      border: none;
-   }
-   .navbar {
-      gap: 2rem;
-   }
-   .logo {
-      width: 120px;
-   }
-   .navBig .navbar .rightLogin .userProfil {
-      width: 30px;
-      height: 30px;
-   }
-   .navBig .navbar .rightLogin .search {
-      width: 20px;
-   }
-   .navBig .loginModal {
-      top: 100px;
-      left: 0;
-   }
+  .navBig .cont .navbar .menu {
+    display: none;
+  }
+  .media {
+    display: none;
+  }
+  .mediaInput {
+    display: block;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: #eceaeab7;
+    border: none;
+  }
+  .navbar {
+    gap: 2rem;
+  }
+  .logo {
+    width: 120px;
+  }
+  .navBig .navbar .rightLogin .userProfil {
+    width: 30px;
+    height: 30px;
+  }
+  .navBig .navbar .rightLogin .search {
+    width: 20px;
+  }
+  .navBig .loginModal {
+    top: 100px;
+    left: 0;
+  }
+  .navBig .navbar .rightLogin .search-cont2 .search-in2 {
+   top: 30px;
+ }
 }

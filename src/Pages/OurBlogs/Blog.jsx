@@ -54,7 +54,7 @@ function Blog() {
               <p className="ourPost-text-about">
                 Cacti are succulents are easy care plants for any home or patio.{" "}
               </p>
-              <NavLink>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
             </div>
           </div>
           <div className="ourPost-mini">
@@ -69,7 +69,7 @@ function Blog() {
               <p className="ourPost-text-about">
                 Best in hanging baskets. Prefers medium to high light..{" "}
               </p>
-              <NavLink>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
             </div>
           </div>
           <div className="ourPost-mini">
@@ -83,7 +83,7 @@ function Blog() {
                 Cacti and succulents thrive in containers and because most
                 are...{" "}
               </p>
-              <NavLink>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
             </div>
           </div>
           <div className="ourPost-mini">
@@ -96,7 +96,7 @@ function Blog() {
               <p className="ourPost-text-about">
                 The benefits of houseplants are endless. In addition to...{" "}
               </p>
-              <NavLink>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
             </div>
           </div>
         </div>

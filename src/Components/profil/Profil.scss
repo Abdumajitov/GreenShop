@@ -61,17 +61,26 @@
     width: 800px;
   }
 }
-.rightAccaunt{
-  width: 100%;
-}
-@media (max-width:700px) {
-  .profil .leftProfil .accauntDitels .accauntDetal-item{
-    color: transparent;
+@media (max-width: 700px) {
+  .profil .leftProfil .accauntDitels .accauntDetal-item {
+    span {
+      display: none;
+    }
   }
-  .profil .leftProfil .accauntDitels .accauntDetal-item-active{
-    color: transparent;
+  .profil .leftProfil .accauntDitels .accauntDetal-item-active {
+    span {
+      display: none;
+    }
   }
   .korzina {
     flex-direction: column;
+  }
+  .logOut{
+    span{
+      display: none;
+    }
+  }
+  .profil .leftProfil .myAccaunt {
+    font-size: 13px;
   }
 }

@@ -66,3 +66,19 @@
     height: 800px;
   }
 }
+@media (max-width: 1180px) {
+  .admin .leftProfil .accauntDitels .accauntDetal-item,
+  .admin .leftProfil .accauntDitels .accauntDetal-item-active {
+    padding: 9px 10px;
+    span {
+      display: none;
+    }
+  }
+  .admin .leftProfil{
+    padding: 0px;
+  }
+  .admin .leftProfil .myAccaunt {
+    display: none;
+  }
+  
+}

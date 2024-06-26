@@ -1,18 +1,18 @@
 .bottom-product2 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 30px;
 }
-.product-sale{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.product-sale {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .redactor{
-        padding: 5px;
-        color: #15411e;
-        cursor: pointer;
-    }
+  .redactor {
+    padding: 5px;
+    color: #15411e;
+    cursor: pointer;
+  }
 }
 .adminProd {
   padding: 20px 30px;

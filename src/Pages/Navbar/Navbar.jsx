@@ -57,6 +57,12 @@ function Navbar() {
     btnHand();
   }, []);
 
+  const [cater, setCater] = useState(false);
+
+  const catFall = () => {
+    setCater((prev) => !prev);
+  };
+
   return (
     <div className="navBig">
       <div className="cont">
@@ -100,7 +106,14 @@ function Navbar() {
             </NavLink>
           </div>
           <div className="rightLogin">
-            <img className="search" src={serach} alt="" />
+            <div className={cater ? "search-cont2" : "search-cont"}>
+              <input
+                className={cater ? "search-in2" : "search-in"}
+                type="text"
+                name=""
+              />
+              <img onClick={catFall} className="search" src={serach} alt="" />
+            </div>
             <div className="shopBag">
               <img
                 onClick={gotoKorzina}

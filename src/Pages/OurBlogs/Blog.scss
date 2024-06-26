@@ -1,9 +1,8 @@
 .blog {
   margin-top: 100px;
   .summer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
 
     .summer-cont {
@@ -60,7 +59,8 @@
       }
     }
     .ourPost-cont {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 45px;
       margin-top: 45px;
 
@@ -115,17 +115,21 @@
       }
     }
   }
-  .ourBlogs .ourPost-cont{
+  .ourBlogs .ourPost-cont {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    .ourPost-mini{
+    .ourPost-mini {
       width: 100%;
 
-      .ourPost-img{
+      .ourPost-img {
         width: 100%;
       }
+    }
+    .ourPost-mini1{
+      display: flex;
+      flex-direction: column;
     }
   }
 }

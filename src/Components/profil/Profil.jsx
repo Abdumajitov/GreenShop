@@ -40,7 +40,7 @@ function Profil() {
             }
           >
             <PersonOutlineIcon />
-            Account Details
+            <span>Account Details</span>
           </NavLink>
           <NavLink
             to={"/profil/addres"}
@@ -49,7 +49,7 @@ function Profil() {
             }
           >
             <LocationOnIcon />
-            Address
+            <span> Address</span>
           </NavLink>
           <NavLink
             to={"/profil/orders"}
@@ -58,7 +58,7 @@ function Profil() {
             }
           >
             <ShoppingCartIcon />
-            Orders
+            <span> Orders</span>
           </NavLink>
           <NavLink
             to={"/profil/likes"}
@@ -67,7 +67,7 @@ function Profil() {
             }
           >
             <FavoriteIcon />
-            Wishlist
+            <span> Wishlist</span>
           </NavLink>
           <NavLink
             to={"/profil/download"}
@@ -76,7 +76,7 @@ function Profil() {
             }
           >
             <SettingsIcon />
-            Setting
+            <span> Setting</span>
           </NavLink>
           <NavLink
             to={"/profil/support"}
@@ -85,14 +85,13 @@ function Profil() {
             }
           >
             <HelpIcon />
-            Support
+            <span> Support</span>
           </NavLink>
-          <NavLink to={"/admin/Analistik"}>go to adminPanel</NavLink>
         </div>
         <div className="logOut">
           <button onClick={remuve} className="accauntLogout">
             <LogoutIcon />
-            Loguot
+            <span>Loguot</span>
           </button>
         </div>
       </div>

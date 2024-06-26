@@ -21,7 +21,9 @@ function Admin() {
   return (
     <div className="admin">
       <div className="leftProfil">
-        <p style={{color:'#fff'}} className="myAccaunt">Admin Panel</p>
+        <p style={{ color: "#fff" }} className="myAccaunt">
+          Admin Panel
+        </p>
         <div className="accauntDitels">
           <NavLink
             to={"/admin/Analistik"}
@@ -30,7 +32,7 @@ function Admin() {
             }
           >
             <AssessmentIcon />
-            Analytics
+            <span> Analytics</span>
           </NavLink>
           <NavLink
             to={"/admin/users"}
@@ -39,7 +41,7 @@ function Admin() {
             }
           >
             <PersonOutlineIcon />
-            Users
+            <span> Users</span>
           </NavLink>
           <NavLink
             to={"/admin/Prod"}
@@ -48,7 +50,7 @@ function Admin() {
             }
           >
             <CategoryIcon />
-            Products
+            <span> Products</span>
           </NavLink>
           <NavLink
             to={"/admin/orders"}
@@ -57,18 +59,8 @@ function Admin() {
             }
           >
             <ShoppingCartIcon />
-            Orders
+            <span> Orders</span>
           </NavLink>
-          <NavLink
-            to={"/admin/support"}
-            className={({ isActive }) =>
-              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
-            }
-          >
-            <SettingsIcon />
-            Setting
-          </NavLink>
-          <NavLink to={"/"}>Home</NavLink>
         </div>
       </div>
       <div className="rightAccaunt">

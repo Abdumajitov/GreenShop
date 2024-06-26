@@ -1,20 +1,19 @@
 .products {
   display: flex;
-  gap: 50px;
-  justify-content: space-between;
   margin-top: 50px;
+  gap: 10px;
 }
 .bottom-product {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
 }
 .leftCategory {
-  width: 28%;
   .categoryAbzor {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-top: 10px;
     padding-bottom: 30px;
     border-bottom: 2px solid #46a358;
 
@@ -26,7 +25,7 @@
       font-weight: 500;
       transition: all 0.2s;
 
-      button{
+      button {
         border: none;
         background-color: transparent;
         font-size: 16px;
@@ -36,7 +35,7 @@
     }
     .categoryAbzor-cont:hover {
       color: #46a358;
-      button{
+      button {
         color: #46a358;
       }
     }
@@ -69,8 +68,7 @@
   color: #3d3d3d;
 }
 .rigtBar {
-  width: 70%;
-
+  width: 100%;
   .loading {
     height: 600px;
     display: flex;
@@ -122,13 +120,49 @@
   color: #fff;
   font-family: "Roboto", sans-serif;
 }
+.categoryAbzor-pp2,
+.categoryAbzor-pp3 {
+  display: none;
+}
 @media (max-width: 700px) {
   .leftCategory {
-    display: none;
+    position: relative;
+    .leftCategory-mini {
+      position: absolute;
+      opacity: 0;
+      padding: 10px;
+      z-index: 10;
+    }
+    .leftCategory-mini2 {
+      position: absolute;
+      opacity: 1;
+      padding: 10px;
+      z-index: 10;
+      background-color: #ffffffe3;
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+  }
+  .categoryAbzor-pp2 {
+    display: block;
+    transform: rotate(-90deg);
+  }
+  .categoryAbzor-pp3 {
+    display: block;
+    transform: rotate(90deg);
+  }
+  .leftCategory-size {
+    img {
+      display: none;
+    }
+  }
+  .products {
+    display: flex;
+    flex-direction: column;
   }
   .bottom-product {
     display: grid;
-    grid-template-columns: 170px 170px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
   }
 }

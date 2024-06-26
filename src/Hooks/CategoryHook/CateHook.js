@@ -35,16 +35,20 @@ function CateHook() {
         dsipatch(updateFilteredData(tempData))
     };
 
-    const inputHandler = (e) => {
+    const [active, setActive] = useState("")
+
+    const inputHandler = (e,lib) => {
         const name = e.target.name;
         const value = e.target.value;
 
         setInputData((prev) => {
             return { ...prev, [name]: value };
         });
+
+        setActive(lib)
     };
 
-    return {inputData, inputHandler};
+    return { inputData, inputHandler, active };
 }
 
 export default CateHook;
