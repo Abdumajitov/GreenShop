@@ -5,8 +5,23 @@ import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import StoreIcon from "@mui/icons-material/Store";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 function AdminAnalis() {
+  const { products, korzinaProduct } = useSelector(
+    (state) => state.productSlice
+  );
+  const [total, setTotal] = useState(0);
+  let pribl = total / 2;
+  const totalAmount = () => {
+    setTotal(
+      korzinaProduct.reduce((a, product) => a + product.price * product.qty, 0)
+    );
+  };
+  useEffect(() => {
+    totalAmount();
+  }, [korzinaProduct]);
   return (
     <div className="AdminAnalis">
       <div className="analistik">
@@ -21,38 +36,38 @@ function AdminAnalis() {
       <div className="analistika-cont">
         <div className="analistik-child">
           <p className="icon">
-            <MonetizationOnIcon sx={{ fontSize: 50 }}/>
+            <StoreIcon sx={{ fontSize: 60 }} />
           </p>
           <div className="analistik-text">
-            <p className="analistik-p">Total Sales</p>
-            <p className="analistik-price">$2,456</p>
+            <p className="analistik-p">Total Profit</p>
+            <p className="analistik-price">${pribl}</p>
           </div>
         </div>
         <div className="analistik-child">
           <div className="icon2">
-            <StoreIcon sx={{ fontSize: 60 }}/>
+            <MonetizationOnIcon sx={{ fontSize: 50 }} />
           </div>
           <div className="analistik-text">
-            <p className="analistik-p">Total Expenses</p>
-            <p className="analistik-price">$3,446</p>
+            <p className="analistik-p">Total Sales</p>
+            <p className="analistik-price">${total}</p>
           </div>
         </div>
         <div className="analistik-child">
           <div className="icon3">
-            <PeopleAltIcon sx={{ fontSize: 50 }}/>
+            <PeopleAltIcon sx={{ fontSize: 50 }} />
           </div>
           <div className="analistik-text">
             <p className="analistik-p">Total Visitors</p>
-            <p className="analistik-price">5,325</p>
+            <p className="analistik-price">1</p>
           </div>
         </div>
         <div className="analistik-child">
           <div className="icon4">
-            <ShoppingBagIcon sx={{ fontSize: 50 }}/>
+            <ShoppingBagIcon sx={{ fontSize: 50 }} />
           </div>
           <div className="analistik-text">
             <p className="analistik-p">Total Orders</p>
-            <p className="analistik-price">1,326</p>
+            <p className="analistik-price">{products.length}</p>
           </div>
         </div>
       </div>

@@ -44,9 +44,7 @@ function Prod() {
     }
   };
 
-  const goProd = (id) => {
-    
-  }
+  const goProd = (id) => {};
 
   const filterHandler = () => {
     const newData = products.filter(
@@ -92,7 +90,7 @@ function Prod() {
             <ArrowBackIosNewIcon />
           </p>
         </div>
-        <div className={cater? "leftCategory-mini2":"leftCategory-mini"}>
+        <div className={cater ? "leftCategory-mini2" : "leftCategory-mini"}>
           <div className="categoryAbzor">
             <div className="categoryAbzor-cont">
               <button
@@ -103,7 +101,6 @@ function Prod() {
               >
                 House Plants
               </button>
-              <p className="categoryAbzor-many">(33)</p>
             </div>
             <div className="categoryAbzor-cont">
               <button
@@ -114,7 +111,6 @@ function Prod() {
               >
                 Potter Plants
               </button>
-              <p className="categoryAbzor-many">(12)</p>
             </div>
             <div className="categoryAbzor-cont">
               <button
@@ -125,7 +121,6 @@ function Prod() {
               >
                 Seeds
               </button>
-              <p className="categoryAbzor-many">(3)</p>
             </div>
             <div className="categoryAbzor-cont">
               <button
@@ -136,7 +131,6 @@ function Prod() {
               >
                 Small Plants
               </button>
-              <p className="categoryAbzor-many">(7)</p>
             </div>
             <div className="categoryAbzor-cont">
               <button
@@ -147,7 +141,6 @@ function Prod() {
               >
                 Big Plants
               </button>
-              <p className="categoryAbzor-many">(21)</p>
             </div>
             <div className="categoryAbzor-cont">
               <button
@@ -158,7 +151,6 @@ function Prod() {
               >
                 Succulents
               </button>
-              <p className="categoryAbzor-many">(13)</p>
             </div>
           </div>
           <div className="range">

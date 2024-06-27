@@ -2,31 +2,42 @@ import React from "react";
 import "./Blog.scss";
 import sumImg1 from "../../assets/PageImg/Welcome/image 14.png";
 import sumImg2 from "../../assets/PageImg/Welcome/image 15.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ourImg1 from "../../assets/PageImg/Welcome/01.png";
 import ourImg2 from "../../assets/PageImg/Welcome/02.png";
 import ourImg3 from "../../assets/PageImg/Welcome/03.png";
 import ourImg4 from "../../assets/PageImg/Welcome/04.png";
 
 function Blog() {
+  const navigate = useNavigate();
+
+  const goblog = () => {
+    navigate("/blog");
+  };
   return (
     <div className="blog">
       <div className="summer">
         <div className="summer-cont">
           <img src={sumImg1} alt="" className="summer-cont-img" />
           <div className="summer-cont-text">
-            <p className="summer-p">Summer cactus <br /> & succulents</p>
+            <p className="summer-p">
+              Summer cactus <br /> & succulents
+            </p>
             <p className="summer-about">
               We are an online plant shop offering a wide range of cheap and
               trendy plants
             </p>
-            <button className="summer-btn">Find More</button>
+            <button onClick={goblog} className="summer-btn">
+              Find More
+            </button>
           </div>
         </div>
         <div className="summer-cont">
           <img src={sumImg2} alt="" className="summer-cont-img" />
           <div className="summer-cont-text">
-            <p className="summer-p">Styling Trends <br /> & much more</p>
+            <p className="summer-p">
+              Styling Trends <br /> & much more
+            </p>
             <p className="summer-about">
               We are an online plant shop offering a wide range of cheap and
               trendy plants
@@ -54,7 +65,9 @@ function Blog() {
               <p className="ourPost-text-about">
                 Cacti are succulents are easy care plants for any home or patio.{" "}
               </p>
-              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>
+                Read More
+              </NavLink>
             </div>
           </div>
           <div className="ourPost-mini">
@@ -69,7 +82,9 @@ function Blog() {
               <p className="ourPost-text-about">
                 Best in hanging baskets. Prefers medium to high light..{" "}
               </p>
-              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>
+                Read More
+              </NavLink>
             </div>
           </div>
           <div className="ourPost-mini">
@@ -83,7 +98,9 @@ function Blog() {
                 Cacti and succulents thrive in containers and because most
                 are...{" "}
               </p>
-              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>
+                Read More
+              </NavLink>
             </div>
           </div>
           <div className="ourPost-mini">
@@ -96,7 +113,9 @@ function Blog() {
               <p className="ourPost-text-about">
                 The benefits of houseplants are endless. In addition to...{" "}
               </p>
-              <NavLink to={"/blog"} className={"active"}>Read More</NavLink>
+              <NavLink to={"/blog"} className={"active"}>
+                Read More
+              </NavLink>
             </div>
           </div>
         </div>

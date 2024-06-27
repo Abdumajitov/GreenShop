@@ -2,6 +2,8 @@ import React from "react";
 import "./AdminProd.scss";
 import { useSelector } from "react-redux";
 import CreateIcon from "@mui/icons-material/Create";
+import SearchIcon from "@mui/icons-material/Search";
+import AddIcon from "@mui/icons-material/Add";
 
 function AdminProd() {
   const { products } = useSelector((state) => state.productSlice);
@@ -9,6 +11,18 @@ function AdminProd() {
 
   return (
     <div className="adminProd">
+      <div style={{ marginBottom: "20px" }} className="adminUser-search">
+        <div className="analistik-search">
+          <input type="text" />
+          <SearchIcon />
+        </div>
+        <div className="addUser">
+          <div className="addUser-cont">
+            <AddIcon />
+            <p className="crateUser">CREATE</p>
+          </div>
+        </div>
+      </div>
       <div className="bottom-product2">
         {products.map((product, i) => {
           return (

@@ -1,13 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./ProductPage.scss";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Footer from "../../Pages/Navbar/Footer/Footer";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
+import { useDispatch, useSelector } from "react-redux";
+import { korzinaProd } from "../../toolkit/userSlice/productSlice";
 
 function ProductPage() {
   const [value, setValue] = React.useState(2);
+  const [fall, setFall] = useState(false);
+  const dispatch = useDispatch();
+  const get = () => {
+    setFall((prev) => !prev);
+  };
+  const { korzinaProduct } = useSelector((state) => state.productSlice);
+  const [cartItem, setCartItem] = useState(korzinaProduct);
+
+  useEffect(() => {
+    dispatch(korzinaProd(cartItem));
+  }, [cartItem]);
+
+  const addKorzina = (prod) => {
+    const existing = cartItem.find((item) => item.id === prod.id);
+    if (existing) {
+      const newItem = cartItem.map((item) =>
+        item.id === prod.id ? { ...item, qty: item.qty + 1 } : item
+      );
+      setCartItem(newItem);
+    } else {
+      setCartItem([...cartItem, { ...prod, qty: 1 }]);
+    }
+  };
+
+  useEffect(() => {
+    dispatch(korzinaProd(cartItem));
+  }, [cartItem]);
+
+  const incrProductCount = (prod) => {
+    const newItem = cartItem.map((item) =>
+      item.id === prod.id ? { ...item, qty: item.qty + 1 } : item
+    );
+    setCartItem(newItem);
+  };
+  const decrProductCount = (prod) => {
+    let resultItem;
+    const newItem = cartItem.map((item) =>
+      item.id === prod.id ? { ...item, qty: item.qty - 1 } : item
+    );
+    if (prod.qty === 1) {
+      resultItem = newItem.filter((item) => item.qty !== 0);
+    } else {
+      resultItem = newItem;
+    }
+    setCartItem(resultItem);
+  };
+
   return (
     <div className="prodPage">
       <div className="productPage">
@@ -42,7 +91,10 @@ function ProductPage() {
             <p className="productPage-name">Barberton Daisy</p>
             <div className="productPage-price">
               <p className="price">$119.00</p>
-              <div style={{display:"flex",alignItems:"center",gap:"5px"}} className="rewiuer">
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "5px" }}
+                className="rewiuer"
+              >
                 <Box
                   sx={{
                     "& > legend": { mt: 2 },
@@ -97,15 +149,32 @@ function ProductPage() {
             </div>
             <div className="howMany">
               <div className="plusMinus">
-                <button className="minus">-</button>
+                <button
+                  onClick={() => decrProductCount(korzin)}
+                  className="minus"
+                >
+                  -
+                </button>
                 <p className="plusNumber">1</p>
-                <button className="plus">+</button>
+                <button
+                  onClick={() => incrProductCount(korzin)}
+                  className="plus"
+                >
+                  +
+                </button>
               </div>
               <div className="manyButton">
                 <button className="manybtn">Buy Now</button>
-                <button className="manybtn1">Add to cart</button>
-                <button className="manybtn2">
-                  <FavoriteIcon />
+                <button
+                  className="manybtn1"
+                  onClick={() => addKorzina({ name, price, img, id })}
+                >
+                  Add to cart
+                </button>
+                <button onClick={get} className="manybtn2">
+                  <p className={fall ? "likeRed" : "likeGreen"}>
+                    <FavoriteIcon />
+                  </p>
                 </button>
               </div>
             </div>

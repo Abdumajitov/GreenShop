@@ -10,6 +10,7 @@
   .navbar {
     display: flex;
     align-items: center;
+    position: relative;
     justify-content: space-between;
     border-bottom: 1px solid #46a35921;
 
@@ -264,7 +265,22 @@
 }
 @media (max-width: 700px) {
   .navBig .cont .navbar .menu {
-    display: none;
+    position: absolute;
+    top: 33px;
+    width: 100%;
+    padding: 0px 10px;
+    border-radius: 0px 0px 10px 10px;
+    justify-content: space-between;
+    background-color: #46a359;
+  }
+  .navBig .navbar .menu .link {
+    color: #ffffffd1;
+  }
+  .navBig .navbar .menu .link:hover {
+    color: #fff;
+  }
+  .navBig .navbar .menu .active {
+    color: #fff;
   }
   .media {
     display: none;
@@ -295,6 +311,6 @@
     left: 0;
   }
   .navBig .navbar .rightLogin .search-cont2 .search-in2 {
-   top: 30px;
- }
+    top: 30px;
+  }
 }

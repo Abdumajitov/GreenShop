@@ -30,7 +30,6 @@ function AdminUser() {
         <div className="Adminusers-child">
           <div className="adminUser-detal">
             <input type="checkbox" />
-            <p className="custom">Avatars</p>
             <p className="custom">Customers</p>
             <p className="custom">Phone</p>
             <p className="custom">Email</p>
@@ -40,23 +39,20 @@ function AdminUser() {
           <div className="adminUser-one">
             <div className="adminUser-ones">
               <input type="checkbox" />
-              <div className="profil-imger">
-                <img src={profilImger?.img} alt="" className="profil-img" />
-              </div>
               <p className="phone">
-                {accProfilDetal.name ? accProfilDetal.name : <p>none</p>}
+                {accProfilDetal?.name ? accProfilDetal.name : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal.nummber ? accProfilDetal.nummber : <p>none</p>}
+                {accProfilDetal?.nummber ? accProfilDetal.nummber : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal.email ? accProfilDetal.email : <p>none</p>}
+                {accProfilDetal?.email ? accProfilDetal.email : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal.total ? accProfilDetal.total : <p>none</p>}
+                {accProfilDetal?.total ? accProfilDetal.total : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal.status ? accProfilDetal.status : <p>none</p>}
+                {accProfilDetal.email === "Samirabdumajitov200@gmail.com" ? <p>Admin</p> : <p>User</p>}
               </p>
             </div>
           </div>

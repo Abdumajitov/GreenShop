@@ -31,7 +31,6 @@ function Profil() {
   return (
     <div className="profil">
       <div className="leftProfil">
-        <p className="myAccaunt">My Account</p>
         <div className="accauntDitels">
           <NavLink
             to={"/profil/detal"}
@@ -68,24 +67,6 @@ function Profil() {
           >
             <FavoriteIcon />
             <span> Wishlist</span>
-          </NavLink>
-          <NavLink
-            to={"/profil/download"}
-            className={({ isActive }) =>
-              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
-            }
-          >
-            <SettingsIcon />
-            <span> Setting</span>
-          </NavLink>
-          <NavLink
-            to={"/profil/support"}
-            className={({ isActive }) =>
-              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
-            }
-          >
-            <HelpIcon />
-            <span> Support</span>
           </NavLink>
         </div>
         <div className="logOut">

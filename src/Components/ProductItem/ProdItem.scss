@@ -97,11 +97,10 @@
     align-items: start;
 
     .product-sale-bag {
-      display: block;
+      display: inline-block;
 
       .bottom-imger12 {
         width: 20px;
-        z-index: 9;
         cursor: pointer;
       }
     }
