@@ -7,15 +7,19 @@ import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
 import { korzinaProd } from "../../toolkit/userSlice/productSlice";
+import { useParams } from "react-router-dom";
 
 function ProductPage() {
-  const [value, setValue] = React.useState(2);
+  const params = useParams();
+  const [value, setValue] = React.useState(5);
   const [fall, setFall] = useState(false);
   const dispatch = useDispatch();
   const get = () => {
     setFall((prev) => !prev);
   };
-  const { korzinaProduct } = useSelector((state) => state.productSlice);
+  const { korzinaProduct, products } = useSelector(
+    (state) => state.productSlice
+  );
   const [cartItem, setCartItem] = useState(korzinaProduct);
 
   useEffect(() => {
@@ -57,138 +61,153 @@ function ProductPage() {
     setCartItem(resultItem);
   };
 
+  const [para, setPara] = useState([]);
+
+  const famar = () => {
+    const existing = products.filter((item) => item.id === params.id);
+    setPara(existing);
+  };
+  useEffect(() => {
+    famar();
+  }, []);
   return (
     <div className="prodPage">
       <div className="productPage">
-        <div className="firstProductPage">
-          <div className="productPage-img">
-            <div className="productPage-4ndimg">
-              <img
-                className="productPage-4ndimg-imger"
-                src="https://atlas-content-cdn.pixelsquid.com/stock-images/house-plant-flower-pot-a86LEY0-600.jpg"
-                alt=""
-              />
-              <img
-                className="productPage-4ndimg-imger"
-                src="https://atlas-content-cdn.pixelsquid.com/stock-images/potted-plant-flower-pot-rAGd4O2-600.jpg"
-                alt=""
-              />
-              <img
-                className="productPage-4ndimg-imger"
-                src="https://atlas-content-cdn.pixelsquid.com/stock-images/house-plant-flower-pot-a86LEY0-600.jpg"
-                alt=""
-              />
-            </div>
-            <div className="productPage-bigimg">
-              <img
-                className="productPage-bigimg-imger"
-                src="https://atlas-content-cdn.pixelsquid.com/stock-images/house-plant-flower-pot-a86LEY0-600.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="productPage-detals">
-            <p className="productPage-name">Barberton Daisy</p>
-            <div className="productPage-price">
-              <p className="price">$119.00</p>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "5px" }}
-                className="rewiuer"
-              >
-                <Box
-                  sx={{
-                    "& > legend": { mt: 2 },
-                  }}
-                >
-                  <Rating name="read-only" value={value} readOnly />
-                </Box>
-                <p className="customRevers">19 Customer Review</p>
+        {para.map((map) => {
+          return (
+            <div className="firstProductPage">
+              <div className="productPage-img">
+                <div className="productPage-4ndimg">
+                  <img
+                    className="productPage-4ndimg-imger"
+                    src={map.img}
+                    alt=""
+                  />
+                  <img
+                    className="productPage-4ndimg-imger"
+                    src={map.img}
+                    alt=""
+                  />
+                  <img
+                    className="productPage-4ndimg-imger"
+                    src={map.img}
+                    alt=""
+                  />
+                </div>
+                <div className="productPage-bigimg">
+                  <img
+                    className="productPage-bigimg-imger"
+                    src={map.img}
+                    alt=""
+                  />
+                </div>
               </div>
-            </div>
-            <div className="productPage-about">
-              <p className="shortDetal">Short Description:</p>
-              <p className="productPage-detal-about">
-                The ceramic cylinder planters come with a wooden stand to help
-                elevate your plants off the ground. The ceramic cylinder
-                planters come with a wooden stand to help elevate your plants
-                off the ground.{" "}
-              </p>
-            </div>
-            <div className="size">
-              <p className="size-text">Size:</p>
-              <div className="size-cont">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active1" : "aline-size"
-                  }
-                >
-                  S
-                </NavLink>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active1" : "aline-size"
-                  }
-                >
-                  M
-                </NavLink>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active1" : "aline-size"
-                  }
-                >
-                  L
-                </NavLink>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active1" : "aline-size"
-                  }
-                >
-                  XL
-                </NavLink>
-              </div>
-            </div>
-            <div className="howMany">
-              <div className="plusMinus">
-                <button
-                  onClick={() => decrProductCount(korzin)}
-                  className="minus"
-                >
-                  -
-                </button>
-                <p className="plusNumber">1</p>
-                <button
-                  onClick={() => incrProductCount(korzin)}
-                  className="plus"
-                >
-                  +
-                </button>
-              </div>
-              <div className="manyButton">
-                <button className="manybtn">Buy Now</button>
-                <button
-                  className="manybtn1"
-                  onClick={() => addKorzina({ name, price, img, id })}
-                >
-                  Add to cart
-                </button>
-                <button onClick={get} className="manybtn2">
-                  <p className={fall ? "likeRed" : "likeGreen"}>
-                    <FavoriteIcon />
+              <div className="productPage-detals">
+                <p className="productPage-name">{map.name}</p>
+                <div className="productPage-price">
+                  <p className="price">${map.price}</p>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                    className="rewiuer"
+                  >
+                    <Box
+                      sx={{
+                        "& > legend": { mt: 2 },
+                      }}
+                    >
+                      <Rating name="read-only" value={value} readOnly />
+                    </Box>
+                    <p className="customRevers">19 Customer Review</p>
+                  </div>
+                </div>
+                <div className="productPage-about">
+                  <p className="shortDetal">Short Description:</p>
+                  <p className="productPage-detal-about">
+                    The ceramic cylinder planters come with a wooden stand to
+                    help elevate your plants off the ground. The ceramic
+                    cylinder planters come with a wooden stand to help elevate
+                    your plants off the ground.{" "}
                   </p>
-                </button>
+                </div>
+                <div className="size">
+                  <p className="size-text">Size:</p>
+                  <div className="size-cont">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active1" : "aline-size"
+                      }
+                    >
+                      S
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active1" : "aline-size"
+                      }
+                    >
+                      M
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active1" : "aline-size"
+                      }
+                    >
+                      L
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active1" : "aline-size"
+                      }
+                    >
+                      XL
+                    </NavLink>
+                  </div>
+                </div>
+                <div className="howMany">
+                  <div className="plusMinus">
+                    <button
+                      onClick={() => decrProductCount(map)}
+                      className="minus"
+                    >
+                      -
+                    </button>
+                    <p className="plusNumber">{map.qty}</p>
+                    <button
+                      onClick={() => incrProductCount(map)}
+                      className="plus"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div className="manyButton">
+                    <button className="manybtn">Buy Now</button>
+                    <button
+                      className="manybtn1"
+                      onClick={() => addKorzina(map)}
+                    >
+                      Add to cart
+                    </button>
+                    <button onClick={get} className="manybtn2">
+                      <p className={fall ? "likeRed" : "likeGreen"}>
+                        <FavoriteIcon />
+                      </p>
+                    </button>
+                  </div>
+                </div>
+                <div className="productPage-category">
+                  <p className="productPage-category-p">SKU: 1995751877966</p>
+                  <p className="productPage-category-p">
+                    Categories: {map.category}
+                  </p>
+                  <p className="productPage-category-p">Size: {map.size}</p>
+                </div>
               </div>
             </div>
-            <div className="productPage-category">
-              <p className="productPage-category-p">SKU: 1995751877966</p>
-              <p className="productPage-category-p">
-                Categories: Potter Plants
-              </p>
-              <p className="productPage-category-p">
-                Tags: Home, Garden, Plants
-              </p>
-            </div>
-          </div>
-        </div>
+          );
+        })}
         <div className="productDetals">
           <div className="descript">
             <NavLink>Product Description</NavLink>

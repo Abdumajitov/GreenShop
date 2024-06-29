@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Wel from "./Pages/WelcomePage/Wel";
 import Prod from "./Pages/Products/Prod";
 import Footer from "./Pages/Navbar/Footer/Footer";

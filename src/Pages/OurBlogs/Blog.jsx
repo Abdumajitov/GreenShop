@@ -42,7 +42,7 @@ function Blog() {
               We are an online plant shop offering a wide range of cheap and
               trendy plants
             </p>
-            <button className="summer-btn">Find More</button>
+            <button onClick={goblog} className="summer-btn">Find More</button>
           </div>
         </div>
       </div>

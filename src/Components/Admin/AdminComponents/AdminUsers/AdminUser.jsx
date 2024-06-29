@@ -20,12 +20,6 @@ function AdminUser() {
             <input type="text" />
             <SearchIcon />
           </div>
-          <div className="addUser">
-            <div className="addUser-cont">
-              <AddIcon />
-              <p className="crateUser">CREATE</p>
-            </div>
-          </div>
         </div>
         <div className="Adminusers-child">
           <div className="adminUser-detal">

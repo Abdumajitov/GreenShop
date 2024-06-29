@@ -19,8 +19,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Pagination from "@mui/material/Pagination";
 
 import useCateHook from "../../Hooks/CategoryHook/CateHook";
+import { useNavigate } from "react-router-dom";
 
 function Prod() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { korzinaProduct } = useSelector((state) => state.productSlice);
   const { products, filterProduct } = useSelector(
@@ -74,6 +76,11 @@ function Prod() {
 
   const catFall = () => {
     setCater((prev) => !prev);
+  };
+
+  const goProdPage = (prod) => {
+    const existing = products.find((item) => item.id === prod.id);
+    navigate(`/productItem/${existing.id}`);
   };
   return (
     <div className="products">
@@ -177,7 +184,7 @@ function Prod() {
               Filter
             </button>
           </div>
-          <div className="leftCategory-size">
+          <div style={{marginTop:"20px"}} className="leftCategory-size">
             <img src={superSale} alt="" />
           </div>
         </div>
@@ -194,6 +201,7 @@ function Prod() {
             {filterProduct.map((product, i) => {
               return (
                 <ProdItem
+                  goProdPage={goProdPage}
                   key={i}
                   cartItem={cartItem}
                   {...product}

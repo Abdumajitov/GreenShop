@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProdItem.scss";
 import serach from "../../assets/PageImg/logo/search-interface-symbol.png";
 import ShopingBag from "../../assets/PageImg/logo/shopping-bag.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+function ProdItem({ img, name, price, id, addKorzina, goProdPage }) {
+  const [faller, setFaller] = useState(false);
 
-import { useNavigate } from "react-router-dom";
-function ProdItem({ img, name, price, id, addKorzina }) {
-  const navigate = useNavigate();
-  const goProdPage = () => {
-    navigate("/productItem");
+  const geter = () => {
+    setFaller((prev) => !prev);
   };
 
   return (
     <div key={id} className="greenshop-product">
       <div className="product-img">
         <img
-          onClick={goProdPage}
+          onClick={() => goProdPage({ id })}
           name="img"
           src={img}
           alt=""
@@ -28,15 +27,13 @@ function ProdItem({ img, name, price, id, addKorzina }) {
             src={ShopingBag}
             alt=""
           />
-          <p
-            className="bottom-imger"
-          >
+          <p onClick={geter} className={faller ? "reder" : "bottom-imger"}>
             <FavoriteIcon />
           </p>
           <img className="bottom-imger2" src={serach} alt="" />
         </div>
       </div>
-      <div onClick={goProdPage} className="product-sale">
+      <div onClick={() => goProdPage({ id })} className="product-sale">
         <div className="product-sale-p">
           <p name="name" className="product-name">
             {name}

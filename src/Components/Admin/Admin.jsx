@@ -61,6 +61,14 @@ function Admin() {
             <ShoppingCartIcon />
             <span> Orders</span>
           </NavLink>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
+            }
+          >
+            <span> Home</span>
+          </NavLink>
         </div>
       </div>
       <div className="rightAccaunt">

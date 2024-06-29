@@ -53,7 +53,6 @@ function AccDetal() {
   const [alert, setAlert] = useState(false);
 
   const saveChange = () => {
-    setAlert((prev) => !prev);
     localStorage.setItem("profilImg", JSON.stringify(profilImg));
   };
   const saveDetal = () => {
