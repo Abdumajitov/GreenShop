@@ -46,7 +46,7 @@ function AdminUser() {
                 {accProfilDetal?.total ? accProfilDetal.total : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal.email === "Samirabdumajitov200@gmail.com" ? <p>Admin</p> : <p>User</p>}
+                {accProfilDetal?.email === "Samirabdumajitov200@gmail.com" ? <p>Admin</p> : <p>User</p>}
               </p>
             </div>
           </div>

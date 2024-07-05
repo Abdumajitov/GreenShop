@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.scss";
 import heartGul from "../../../assets/footerImg/Group 18.png";
 import login from "../../../assets/PageImg/logo/Group (4).png";
@@ -11,6 +11,8 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 const garden = [
   {
@@ -31,10 +33,29 @@ const garden = [
 ];
 
 function Footer() {
+  const [state, setState] = useState("");
+  const [lols, setLols] = useState(false);
+  const enterEmail = (e) => {
+    const { name, value } = e.target;
+    setState((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const enterClick = () => {
+    if (state) {
+      setLols((prev) => !prev);
+    }
+  };
+
   return (
     <div className="footer">
+      <div className={lols ? "activeAlert" : "alert"}>
+        <Stack sx={{ width: "100%" }} spacing={2}>
+          <Alert severity="success">This is a success Alert.</Alert>
+        </Stack>
+      </div>
       <div className="garden">
-        {garden.map((gul,i) => {
+        {garden.map((gul, i) => {
           return (
             <div key={i} className="garden-cont">
               <div className="garden-cont-img">
@@ -49,8 +70,15 @@ function Footer() {
         <div className="wouldLike">
           <p className="wouldLike-p">Would you like to join newsletters?</p>
           <div className="wouldLike-input">
-            <input type="text" placeholder="enter your email address..." />
-            <button className="wouldLike-btn">Join</button>
+            <input
+              onChange={enterEmail}
+              name="enter"
+              type="text"
+              placeholder="enter your email address..."
+            />
+            <button onClick={enterClick} className="wouldLike-btn">
+              Join
+            </button>
           </div>
           <p className="wouldLike-about">
             We usually post offers and challenges in newsletter. We’re your
@@ -105,19 +133,19 @@ function Footer() {
           <p className="social-p">Social Media</p>
           <div className="social-btns">
             <button className="social-btn">
-              <FacebookIcon sx={{ color: "green" }}/>
+              <FacebookIcon sx={{ color: "green" }} />
             </button>
             <button className="social-btn">
-              <InstagramIcon sx={{ color: "green" }}/>
+              <InstagramIcon sx={{ color: "green" }} />
             </button>
             <button className="social-btn">
-              <TwitterIcon sx={{ color: "green" }}/>
+              <TwitterIcon sx={{ color: "green" }} />
             </button>
             <button className="social-btn">
-              <LinkedInIcon sx={{ color: "green" }}/>
+              <LinkedInIcon sx={{ color: "green" }} />
             </button>
             <button className="social-btn">
-              <YouTubeIcon sx={{ color: "green" }}/>
+              <YouTubeIcon sx={{ color: "green" }} />
             </button>
           </div>
         </div>

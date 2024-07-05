@@ -1,3 +1,175 @@
-.shop-detal{
-    height: 400px;
+.shop-detal {
+  display: flex;
+  margin-top: 50px;
+  gap: 10px;
+}
+.bottom-product {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  height: 100%;
+}
+.leftCategory {
+  .categoryAbzor {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 10px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #46a358;
+
+    .categoryAbzor-cont {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 10px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+    }
+    .categoryAbzor-cont:hover {
+      color: #46a358;
+      button {
+        color: #46a358;
+      }
+    }
+  }
+  .leftCategory-size {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .categoryAbzor-cont {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 10px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .categoryAbzor-cont:hover {
+      color: #46a358;
+    }
+    .sizeCategory {
+      padding: 0px 10px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+}
+.categoryAbzor-pp {
+  font-weight: 900;
+  font-size: 18px;
+  color: #3d3d3d;
+}
+.rigtBar {
+  width: 100%;
+  .loading {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 40px;
+  }
+}
+.range {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  .rangePrice {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-weight: 600;
+    p {
+      font-weight: 400;
+    }
+    hr {
+      width: 50px;
+      height: 3px;
+    }
+    span {
+      color: #46a358;
+    }
+  }
+}
+.filter {
+  display: flex;
+  margin-top: 20px;
+  gap: 5px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background-color: #46a358;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.categoryAbzor-pp2,
+.categoryAbzor-pp3 {
+  display: none;
+}
+@media (max-width: 700px) {
+  .shop-detal{
+    display: flex;
+    flex-direction: column;
+  }
+  .leftCategory {
+    position: relative;
+    .leftCategory-mini {
+      position: absolute;
+      opacity: 0;
+      padding: 10px;
+      display: none;
+      z-index: 10;
+    }
+    .leftCategory-mini2 {
+      position: absolute;
+      opacity: 1;
+      padding: 10px;
+      display: block;
+      z-index: 10;
+      background-color: #ffffffe3;
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+  }
+  .categoryAbzor-pp2 {
+    display: block;
+    transform: rotate(-90deg);
+  }
+  .categoryAbzor-pp3 {
+    display: block;
+    transform: rotate(90deg);
+  }
+  .leftCategory-size {
+    img {
+      display: none;
+    }
+  }
+  .products {
+    display: flex;
+    flex-direction: column;
+  }
+  .bottom-product {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
 }

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { updateFilteredData } from "../../toolkit/userSlice/productSlice"
+import { updateFilteredData, searchDet } from "../../toolkit/userSlice/productSlice"
 
 function CateHook() {
 
@@ -17,6 +17,7 @@ function CateHook() {
 
     useEffect(() => {
         filterData();
+        filterData2()
     }, [
         inputData.category,
         inputData.search,
@@ -24,15 +25,24 @@ function CateHook() {
 
     const filterData = () => {
         let tempData = [...products];
-        tempData = tempData.filter((shoe) =>
-            shoe.name.toLowerCase().includes(inputData.search)
-        );
         if (inputData.category !== "all") {
             tempData = tempData.filter(
                 (shoe) => shoe.category === inputData.category
             );
         }
         dsipatch(updateFilteredData(tempData))
+    };
+
+    const filterData2 = () => {
+        let tempData = [];
+        if (inputData.search) {
+            tempData = [...products]
+            tempData = tempData.filter((shoe) =>
+                shoe.name.toLowerCase().includes(inputData.search)
+            );
+        }
+
+        dsipatch(searchDet(tempData))
     };
 
 

@@ -67,7 +67,11 @@ function AdminAnalis() {
           </div>
           <div className="analistik-text">
             <p className="analistik-p">Total Orders</p>
-            <p className="analistik-price">{products.length}</p>
+            <p className="analistik-price">
+              {korzinaProduct
+                ? products.length - korzinaProduct.length
+                : products.length}
+            </p>
           </div>
         </div>
       </div>

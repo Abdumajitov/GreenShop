@@ -1,7 +1,8 @@
 .products {
   display: flex;
+  flex-direction: column;
   margin-top: 50px;
-  gap: 10px;
+  gap: 30px;
 }
 .bottom-product {
   display: grid;
@@ -105,6 +106,23 @@
     span {
       color: #46a358;
     }
+  }
+}
+.find{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  .find-l{
+    color: #46a358;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .prof{
+    font-size: 30px;
+    font-weight: 700;
   }
 }
 .filter {

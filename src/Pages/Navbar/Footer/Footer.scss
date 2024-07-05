@@ -147,6 +147,16 @@
     }
   }
 }
+.alert {
+  position: fixed;
+  top: -1000px;
+}
+.activeAlert {
+  position: fixed;
+  top: 10px;
+  left: 900px;
+  transition: all 0.2s;
+}
 @media (max-width: 700px) {
   .footer .garden .garden-cont {
     display: none;

@@ -8,13 +8,17 @@ import ShopingBag from "../../assets/PageImg/logo/shopping-bag.png";
 import serach from "../../assets/PageImg/logo/search-interface-symbol.png";
 import google from "../../assets/PageImg/login/google 1.png";
 import facebook from "../../assets/PageImg/login/facebook 1.png";
-const menu = ["Home", "Shop", "Plant Care", "Blogs"];
+import useCateHook from "../../Hooks/CategoryHook/CateHook";
 
 function Navbar() {
   const navigate = useNavigate();
   const profil = JSON.parse(localStorage.getItem("user"));
   const profilImger = JSON.parse(localStorage.getItem("profilImg"));
-  const { korzinaProduct } = useSelector((state) => state.productSlice);
+  const { korzinaProduct, filterProduct, seracher, products } = useSelector(
+    (state) => state.productSlice
+  );
+  console.log(filterProduct);
+  const { inputHandler } = useCateHook();
 
   const [btnFalse, setBtnFalse] = useState(false);
 
@@ -63,6 +67,13 @@ function Navbar() {
     setCater((prev) => !prev);
   };
 
+  const goProdPage = (prod) => {
+    const existing = products.find((item) => item.id === prod.id);
+    if (existing) {
+      navigate(`/productItem/${existing.id}`);
+      setCater(false);
+    }
+  };
   return (
     <div className="navBig">
       <div className="cont">
@@ -90,7 +101,7 @@ function Navbar() {
             </NavLink>
             {profil?.email === "Samirabdumajitov200@gmail.com" ? (
               <NavLink
-                to="/admin"
+                to="/admin/Analistik"
                 className={({ isActive }) => (isActive ? "active" : "link")}
               >
                 Admin Panel
@@ -106,12 +117,22 @@ function Navbar() {
             </NavLink>
           </div>
           <div className="rightLogin">
-            <div className={cater ? "search-cont2" : "search-cont"}>
-              <input
-                className={cater ? "search-in2" : "search-in"}
-                type="text"
-                name=""
-              />
+            <div className={"search-cont"}>
+              <div className={cater ? "search-wel" : "search-wel2"}>
+                <input type="text" name="search" onChange={inputHandler} />
+                {seracher.map((sea) => {
+                  return (
+                    <div
+                      key={sea.id}
+                      onClick={() => goProdPage(sea)}
+                      className="search-prod"
+                    >
+                      <img src={sea.img} alt="" className="imger" />
+                      <p className="name">{sea.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
               <img onClick={catFall} className="search" src={serach} alt="" />
             </div>
             <div className="shopBag">
@@ -132,7 +153,7 @@ function Navbar() {
                     className="userProfil"
                   />
                 ) : (
-                  <div className="userProfil">{userData.email[0]}</div>
+                  <div className="userProfil">{profil.email[0]}</div>
                 )}
               </div>
             ) : (

@@ -53,15 +53,6 @@ function Admin() {
             <span> Products</span>
           </NavLink>
           <NavLink
-            to={"/admin/orders"}
-            className={({ isActive }) =>
-              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
-            }
-          >
-            <ShoppingCartIcon />
-            <span> Orders</span>
-          </NavLink>
-          <NavLink
             to={"/"}
             className={({ isActive }) =>
               isActive ? "accauntDetal-item-active" : "accauntDetal-item"

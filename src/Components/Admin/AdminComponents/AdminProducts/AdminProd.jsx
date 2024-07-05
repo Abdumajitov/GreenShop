@@ -7,9 +7,11 @@ import AddIcon from "@mui/icons-material/Add";
 import AddProd from "./AddProd/AddProd";
 
 function AdminProd() {
-  const { products } = useSelector((state) => state.productSlice);
+  const { products, korzinaProduct } = useSelector(
+    (state) => state.productSlice
+  );
   const [faller, setFaller] = useState(false);
-  const [cre, setCre] = useState();
+  const [cre, setCre] = useState([]);
 
   const geter = () => {
     setFaller((prev) => !prev);
@@ -41,7 +43,7 @@ function AdminProd() {
           {products.map((product, i) => {
             return (
               <div
-                onClick={create}
+                onClick={() => create(product.id)}
                 key={i}
                 className={
                   cre === product.id

@@ -146,7 +146,7 @@ function AccDetal() {
               <label htmlFor="profilImg">
                 <div className="userPhoto">
                   {profilImger ? (
-                    <img src={profilImger.img} alt="" />
+                    <img src={profilImger?.img} alt="" />
                   ) : (
                     <AddPhotoAlternateIcon />
                   )}

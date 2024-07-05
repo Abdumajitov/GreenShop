@@ -74,10 +74,19 @@ const initialState = {
          size: "small",
          category: "Big Plants",
       },
+      {
+         id: "10",
+         name: "Blushing Bromeliad",
+         img: "https://png.pngtree.com/png-vector/20240207/ourmid/pngtree-indoor-plant-flowerpot-png-image_11669796.png",
+         price: "139.00",
+         size: "small",
+         category: "Big Plants",
+      },
    ],
    filterProduct: [],
    korzinaProduct: [],
    checkProd: [],
+   seracher: [],
 };
 
 const userSlice = createSlice({
@@ -89,7 +98,6 @@ const userSlice = createSlice({
       },
       saveDataToState: (state, { payload }) => {
          state.products = payload;
-         state.filteredData = payload;
       },
 
       updateFilteredData: (state, { payload }) => {
@@ -102,11 +110,15 @@ const userSlice = createSlice({
 
       saleProduct: (state, { payload }) => {
          state.checkProd = payload
-      }
+      },
+
+      searchDet: (state, { payload }) => {
+         state.seracher = payload
+      },
    },
 });
 
 export default userSlice.reducer;
 
-export const { addProduct, saveDataToState, updateFilteredData, korzinaProd, saleProduct } =
+export const { addProduct, saveDataToState, updateFilteredData, korzinaProd, saleProduct, searchDet } =
    userSlice.actions;

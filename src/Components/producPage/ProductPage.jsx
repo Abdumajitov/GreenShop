@@ -13,10 +13,12 @@ function ProductPage() {
   const params = useParams();
   const [value, setValue] = React.useState(5);
   const [fall, setFall] = useState(false);
+  const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const get = () => {
     setFall((prev) => !prev);
   };
+  const buyNnow = () => {};
   const { korzinaProduct, products } = useSelector(
     (state) => state.productSlice
   );
@@ -36,6 +38,7 @@ function ProductPage() {
     } else {
       setCartItem([...cartItem, { ...prod, qty: 1 }]);
     }
+    incrProductCount();
   };
 
   useEffect(() => {
@@ -48,6 +51,7 @@ function ProductPage() {
     );
     setCartItem(newItem);
   };
+
   const decrProductCount = (prod) => {
     let resultItem;
     const newItem = cartItem.map((item) =>
@@ -208,6 +212,7 @@ function ProductPage() {
             </div>
           );
         })}
+        <div className="order"></div>
         <div className="productDetals">
           <div className="descript">
             <NavLink>Product Description</NavLink>
