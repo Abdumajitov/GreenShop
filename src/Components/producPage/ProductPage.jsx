@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
 import { korzinaProd } from "../../toolkit/userSlice/productSlice";
 import { useParams } from "react-router-dom";
+import OrPg from "../producPage/OrderPage/OrPg";
 
 function ProductPage() {
   const params = useParams();
@@ -22,7 +23,13 @@ function ProductPage() {
   const { korzinaProduct, products } = useSelector(
     (state) => state.productSlice
   );
-  const [cartItem, setCartItem] = useState(korzinaProduct);
+  const orderPage = (prod) => {
+    const existing = products.find((item) => item.id === prod.id);
+    if (existing) {
+      setModal((prev) => !prev);
+    }
+  };
+  const [cartItem, setCartItem] = useState([]);
 
   useEffect(() => {
     dispatch(korzinaProd(cartItem));
@@ -46,23 +53,39 @@ function ProductPage() {
   }, [cartItem]);
 
   const incrProductCount = (prod) => {
-    const newItem = cartItem.map((item) =>
-      item.id === prod.id ? { ...item, qty: item.qty + 1 } : item
+    setCartItem((cartItem) =>
+      cartItem.map((item) =>
+        cartItem.id === prod.id
+          ? { ...item, qty: item.qty + (item.qty < 10 ? 1 : 0) }
+          : item
+      )
     );
-    setCartItem(newItem);
+    console.log(cartItem);
+
+    // const newItem = cartItem.map((item) =>
+    //   item.id === prod.id ? { ...item, qty: item.qty + 1 } : item
+    // );
+    // setCartItem(newItem);
   };
 
   const decrProductCount = (prod) => {
-    let resultItem;
-    const newItem = cartItem.map((item) =>
-      item.id === prod.id ? { ...item, qty: item.qty - 1 } : item
+    setCartItem((cartItem) =>
+      cartItem.map((item) =>
+        cartItem.id === prod.id
+          ? { ...item, qty: item.qty - (item.qty > 1 ? 1 : 0) }
+          : item
+      )
     );
-    if (prod.qty === 1) {
-      resultItem = newItem.filter((item) => item.qty !== 0);
-    } else {
-      resultItem = newItem;
-    }
-    setCartItem(resultItem);
+    // let resultItem;
+    // const newItem = cartItem.map((item) =>
+    //   item.id === prod.id ? { ...item, qty: item.qty - 1 } : item
+    // );
+    // if (prod.qty === 1) {
+    //   resultItem = newItem.filter((item) => item.qty !== 0);
+    // } else {
+    //   resultItem = newItem;
+    // }
+    // setCartItem(resultItem);
   };
 
   const [para, setPara] = useState([]);
@@ -79,7 +102,7 @@ function ProductPage() {
       <div className="productPage">
         {para.map((map) => {
           return (
-            <div className="firstProductPage">
+            <div key={map.id} className="firstProductPage">
               <div className="productPage-img">
                 <div className="productPage-4ndimg">
                   <img
@@ -187,7 +210,9 @@ function ProductPage() {
                     </button>
                   </div>
                   <div className="manyButton">
-                    <button className="manybtn">Buy Now</button>
+                    <button onClick={() => orderPage(map)} className="manybtn">
+                      Buy Now
+                    </button>
                     <button
                       className="manybtn1"
                       onClick={() => addKorzina(map)}
@@ -212,7 +237,12 @@ function ProductPage() {
             </div>
           );
         })}
-        <div className="order"></div>
+        {modal && (
+          <div className="orPg">
+            <OrPg para={para} />
+          </div>
+        )}
+        {modal && <div className="modaler"></div>}
         <div className="productDetals">
           <div className="descript">
             <NavLink>Product Description</NavLink>

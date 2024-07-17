@@ -8,7 +8,12 @@ function AdminUser() {
   const profilImger = JSON.parse(localStorage.getItem("profilImg"));
 
   return (
-    <div className="adminUsers">
+    <div
+      style={{
+        height: "100vh",
+      }}
+      className="adminUsers"
+    >
       <div className="analistik">
         <div className="adminAnalis-cont">
           <p className="analytics">Users</p>
@@ -46,7 +51,11 @@ function AdminUser() {
                 {accProfilDetal?.total ? accProfilDetal.total : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal?.email === "Samirabdumajitov200@gmail.com" ? <p>Admin</p> : <p>User</p>}
+                {accProfilDetal?.email === "Samirabdumajitov200@gmail.com" ? (
+                  <p>Admin</p>
+                ) : (
+                  <p>User</p>
+                )}
               </p>
             </div>
           </div>

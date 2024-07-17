@@ -56,7 +56,7 @@ function CateHook() {
 
     };
 
-    return { inputData, inputHandler };
+    return { inputData, inputHandler, setInputData };
 }
 
 export default CateHook;

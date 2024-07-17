@@ -11,7 +11,6 @@ function AddProd() {
     price: "",
     cate: "",
   });
-  console.log(state);
 
   const inSave = (e) => {
     const name = e.target.name;

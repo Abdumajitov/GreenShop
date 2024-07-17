@@ -68,7 +68,7 @@ function Prod() {
     }, 700);
   }, [filterProduct]);
 
-  const { inputHandler } = useCateHook();
+  const { inputHandler, setInputData } = useCateHook();
 
   const [cater, setCater] = useState(false);
 
@@ -80,6 +80,12 @@ function Prod() {
     const existing = products.find((item) => item.id === prod.id);
     navigate(`/productItem/${existing.id}`);
   };
+
+  const [page, setPage] = useState(1);
+  const [lowPage, setLowPage] = useState(10);
+
+  const lastIndex = page * lowPage;
+  const postPage = lastIndex - lowPage;
   return (
     <div className="products">
       <div className="find">
@@ -97,7 +103,7 @@ function Prod() {
           </div>
         ) : (
           <div className="bottom-product">
-            {products.map((product, i) => {
+            {products.slice(postPage, lastIndex).map((product, i) => {
               return (
                 <ProdItem
                   goProdPage={goProdPage}
@@ -105,6 +111,7 @@ function Prod() {
                   cartItem={cartItem}
                   {...product}
                   addKorzina={addKorzina}
+                  setInputData={setInputData}
                 />
               );
             })}

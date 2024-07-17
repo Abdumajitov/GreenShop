@@ -5,7 +5,6 @@ import {
   korzinaProd,
 } from "../../toolkit/userSlice/productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import "./Shop.scss";
 import useCateHook from "../../Hooks/CategoryHook/CateHook";
@@ -15,6 +14,8 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import superSale from "../../assets/ProductImg/Super Sale Banner.png";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 function Shop() {
   const navigate = useNavigate();
@@ -76,8 +77,19 @@ function Shop() {
     navigate(`/productItem/${existing.id}`);
   };
 
+  const [page, setPage] = useState(1);
+  const [lowPage, setLowPage] = useState(9);
+  const handleChange2 = (event, value) => {
+    setPage(value);
+  };
+
+  const lastIndex = page * lowPage;
+  const postPage = lastIndex - lowPage;
+  const Pages = Math.ceil(filterProduct.length / lowPage);
+
   return (
     <div className="shop-page">
+      <h1 className="shop-h1">Shop</h1>
       <div className="shop-detal">
         <div className="leftCategory">
           <div
@@ -144,16 +156,6 @@ function Shop() {
                   Big Plants
                 </button>
               </div>
-              <div className="categoryAbzor-cont">
-                <button
-                  onClick={inputHandler}
-                  name="category"
-                  value="Succulents"
-                  className="categoryAbzor-p"
-                >
-                  Succulents
-                </button>
-              </div>
             </div>
             <div className="range">
               <div className="range-cont">
@@ -193,7 +195,7 @@ function Shop() {
             </div>
           ) : (
             <div className="bottom-product">
-              {filterProduct.map((product, i) => {
+              {filterProduct.slice(postPage, lastIndex).map((product, i) => {
                 return (
                   <ProdItem
                     goProdPage={goProdPage}
@@ -206,6 +208,18 @@ function Shop() {
               })}
             </div>
           )}
+          <div className="pagination">
+            <Stack spacing={2}>
+              <Pagination
+                color="success"
+                count={Pages}
+                page={page}
+                onChange={handleChange2}
+                variant="outlined"
+                shape="rounded"
+              />
+            </Stack>
+          </div>
         </div>
       </div>
       <Footer />

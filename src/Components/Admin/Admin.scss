@@ -7,7 +7,6 @@
   .leftProfil {
     font-family: "Roboto", sans-serif;
     background-color: #262626;
-    height: 100vh;
     width: 13%;
     padding: 10px 20px;
     .myAccaunt {
@@ -42,7 +41,7 @@
   }
   .rightAccaunt {
     width: 100%;
-    height: 100vh;
+    height: 100%; 
     background-color: #eae9e9a7;
   }
   .accauntLogout {
@@ -63,7 +62,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 800px;
+    height: 100vh;
   }
 }
 @media (max-width: 1180px) {
@@ -74,11 +73,10 @@
       display: none;
     }
   }
-  .admin .leftProfil{
+  .admin .leftProfil {
     padding: 0px;
   }
   .admin .leftProfil .myAccaunt {
     display: none;
   }
-  
 }

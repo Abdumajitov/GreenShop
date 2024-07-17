@@ -17,7 +17,6 @@ function Navbar() {
   const { korzinaProduct, filterProduct, seracher, products } = useSelector(
     (state) => state.productSlice
   );
-  console.log(filterProduct);
   const { inputHandler } = useCateHook();
 
   const [btnFalse, setBtnFalse] = useState(false);
