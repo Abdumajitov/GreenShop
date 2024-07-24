@@ -5,13 +5,9 @@ import { useEffect, useState } from "react";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
-import HelpIcon from "@mui/icons-material/Help";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
-import SettingsIcon from "@mui/icons-material/Settings";
 
 function Profil() {
   const navigate = useNavigate();
@@ -58,15 +54,6 @@ function Profil() {
           >
             <ShoppingCartIcon />
             <span> Orders</span>
-          </NavLink>
-          <NavLink
-            to={"/profil/likes"}
-            className={({ isActive }) =>
-              isActive ? "accauntDetal-item-active" : "accauntDetal-item"
-            }
-          >
-            <FavoriteIcon />
-            <span> Wishlist</span>
           </NavLink>
         </div>
         <div className="logOut">

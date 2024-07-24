@@ -9,7 +9,6 @@ const initialState = {
          price: "119.00",
          size: "Large",
          category: "House Plants",
-         qty: 1,
       },
       {
          id: "2",

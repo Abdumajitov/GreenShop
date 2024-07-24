@@ -3,16 +3,11 @@ import "./ProdItem.scss";
 import serach from "../../assets/PageImg/logo/search-interface-symbol.png";
 import ShopingBag from "../../assets/PageImg/logo/shopping-bag.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-function ProdItem({
-  img,
-  name,
-  price,
-  id,
-  addKorzina,
-  goProdPage,
-}) {
-  const [faller, setFaller] = useState(false);
+import useCateHook from "../../Hooks/CategoryHook/CateHook";
 
+function ProdItem({ img, name, price, id, addKorzina, goProdPage }) {
+  const [faller, setFaller] = useState(false);
+  const { inputHandler } = useCateHook();
   const geter = () => {
     setFaller((prev) => !prev);
   };
@@ -37,11 +32,7 @@ function ProdItem({
           <p onClick={geter} className={faller ? "reder" : "bottom-imger"}>
             <FavoriteIcon />
           </p>
-          <img
-            className="bottom-imger2"
-            src={serach}
-            alt=""
-          />
+          <img className="bottom-imger2" src={serach} alt="" />
         </div>
       </div>
       <div onClick={() => goProdPage({ id })} className="product-sale">

@@ -6,6 +6,7 @@ import AddIcon from "@mui/icons-material/Add";
 function AdminUser() {
   const accProfilDetal = JSON.parse(localStorage.getItem("accDetal"));
   const profilImger = JSON.parse(localStorage.getItem("profilImg"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div
@@ -39,16 +40,16 @@ function AdminUser() {
             <div className="adminUser-ones">
               <input type="checkbox" />
               <p className="phone">
-                {accProfilDetal?.name ? accProfilDetal.name : <p>none</p>}
+                {accProfilDetal?.firstName ? accProfilDetal.firstName : <p>none</p>}
               </p>
               <p className="phone">
                 {accProfilDetal?.nummber ? accProfilDetal.nummber : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal?.email ? accProfilDetal.email : <p>none</p>}
+                {user?.email ? user.email : <p>none</p>}
               </p>
               <p className="phone">
-                {accProfilDetal?.total ? accProfilDetal.total : <p>none</p>}
+                $ {accProfilDetal?.total ? accProfilDetal.total : <p>none</p>}
               </p>
               <p className="phone">
                 {accProfilDetal?.email === "Samirabdumajitov200@gmail.com" ? (

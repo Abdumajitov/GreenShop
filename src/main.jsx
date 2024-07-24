@@ -19,17 +19,11 @@ const AccaountDetal = lazy(() =>
 const Addres = lazy(() =>
   import("./Components/profil/profilComponents/Addres/Addres")
 );
-const Download = lazy(() =>
-  import("./Components/profil//profilComponents/Dowland/Dowland")
-);
 const Likes = lazy(() =>
   import("./Components/profil/profilComponents/Likes/Likes")
 );
 const Orders = lazy(() =>
   import("./Components/profil/profilComponents/Orders/Orders")
-);
-const Support = lazy(() =>
-  import("./Components/profil/profilComponents/Support/Support")
 );
 const ProductItem = lazy(() => import("./Components/producPage/ProductPage"));
 const Korzina = lazy(() => import("./Components/Korzina/Korzina"));
@@ -75,20 +69,12 @@ const router = createBrowserRouter([
             element: <Addres />,
           },
           {
-            path: "/profil/download",
-            element: <Download />,
-          },
-          {
             path: "/profil/likes",
             element: <Likes />,
           },
           {
             path: "/profil/orders",
             element: <Orders />,
-          },
-          {
-            path: "/profil/support",
-            element: <Support />,
           },
         ],
       },
@@ -121,10 +107,6 @@ const router = createBrowserRouter([
       {
         path: "/admin/orders",
         element: <Orders />,
-      },
-      {
-        path: "/admin/support",
-        element: <Support />,
       },
     ],
   },

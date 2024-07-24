@@ -226,6 +226,15 @@
     }
   }
 }
+.modaler{
+  background-color: #3d3d3d45;
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+.orPg{
+  z-index: 10;
+}
 .likeRed {
   color: red;
 }

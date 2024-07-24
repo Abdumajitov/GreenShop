@@ -19,7 +19,6 @@ function ProductPage() {
   const get = () => {
     setFall((prev) => !prev);
   };
-  const buyNnow = () => {};
   const { korzinaProduct, products } = useSelector(
     (state) => state.productSlice
   );
@@ -29,64 +28,38 @@ function ProductPage() {
       setModal((prev) => !prev);
     }
   };
-  const [cartItem, setCartItem] = useState([]);
+  const [cartItem, setCartItem] = useState(korzinaProduct);
+  const [prodQty, setProdQty] = useState(1);
 
   useEffect(() => {
     dispatch(korzinaProd(cartItem));
   }, [cartItem]);
 
   const addKorzina = (prod) => {
+    console.log(prodQty);
     const existing = cartItem.find((item) => item.id === prod.id);
     if (existing) {
       const newItem = cartItem.map((item) =>
-        item.id === prod.id ? { ...item, qty: item.qty + 1 } : item
+        item.id === prod.id ? { ...item, qty: item.qty + prodQty } : item
       );
       setCartItem(newItem);
     } else {
-      setCartItem([...cartItem, { ...prod, qty: 1 }]);
+      setCartItem([...cartItem, { ...prod, qty: prodQty }]);
     }
-    incrProductCount();
+  };
+
+  const incriment = () => {
+    setProdQty(prodQty + 1);
+  };
+  const decrement = () => {
+    if (prodQty >= 2) {
+      setProdQty(prodQty - 1);
+    }
   };
 
   useEffect(() => {
     dispatch(korzinaProd(cartItem));
   }, [cartItem]);
-
-  const incrProductCount = (prod) => {
-    setCartItem((cartItem) =>
-      cartItem.map((item) =>
-        cartItem.id === prod.id
-          ? { ...item, qty: item.qty + (item.qty < 10 ? 1 : 0) }
-          : item
-      )
-    );
-    console.log(cartItem);
-
-    // const newItem = cartItem.map((item) =>
-    //   item.id === prod.id ? { ...item, qty: item.qty + 1 } : item
-    // );
-    // setCartItem(newItem);
-  };
-
-  const decrProductCount = (prod) => {
-    setCartItem((cartItem) =>
-      cartItem.map((item) =>
-        cartItem.id === prod.id
-          ? { ...item, qty: item.qty - (item.qty > 1 ? 1 : 0) }
-          : item
-      )
-    );
-    // let resultItem;
-    // const newItem = cartItem.map((item) =>
-    //   item.id === prod.id ? { ...item, qty: item.qty - 1 } : item
-    // );
-    // if (prod.qty === 1) {
-    //   resultItem = newItem.filter((item) => item.qty !== 0);
-    // } else {
-    //   resultItem = newItem;
-    // }
-    // setCartItem(resultItem);
-  };
 
   const [para, setPara] = useState([]);
 
@@ -195,17 +168,11 @@ function ProductPage() {
                 </div>
                 <div className="howMany">
                   <div className="plusMinus">
-                    <button
-                      onClick={() => decrProductCount(map)}
-                      className="minus"
-                    >
+                    <button onClick={decrement} className="minus">
                       -
                     </button>
-                    <p className="plusNumber">{map.qty}</p>
-                    <button
-                      onClick={() => incrProductCount(map)}
-                      className="plus"
-                    >
+                    <p className="plusNumber">{prodQty}</p>
+                    <button onClick={incriment} className="plus">
                       +
                     </button>
                   </div>
@@ -237,12 +204,6 @@ function ProductPage() {
             </div>
           );
         })}
-        {modal && (
-          <div className="orPg">
-            <OrPg para={para} />
-          </div>
-        )}
-        {modal && <div className="modaler"></div>}
         <div className="productDetals">
           <div className="descript">
             <NavLink>Product Description</NavLink>
@@ -273,6 +234,11 @@ function ProductPage() {
         </div>
       </div>
       <Footer />
+      {modal && (
+        <div className="orPg">
+          <OrPg para={para} />
+        </div>
+      )}
     </div>
   );
 }

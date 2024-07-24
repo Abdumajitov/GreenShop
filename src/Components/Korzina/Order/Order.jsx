@@ -9,11 +9,14 @@ function Order({ total, setModal }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { korzinaProduct } = useSelector(
-    (state) => state.productSlice
-  );
-
+  const { korzinaProduct } = useSelector((state) => state.productSlice);
+  const accProfilDetal = JSON.parse(localStorage.getItem("accDetal"));
+  
   const goCheck = () => {
+    localStorage.setItem(
+      "accDetal",
+      JSON.stringify({ ...accProfilDetal, total: total })
+    );
     dispatch(saleProduct(korzinaProduct));
     setModal(false);
     navigate("/");

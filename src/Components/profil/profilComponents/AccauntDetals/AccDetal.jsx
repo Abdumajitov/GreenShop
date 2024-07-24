@@ -4,6 +4,7 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import PersonIcon from "@mui/icons-material/Person";
 
 function AccDetal() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -36,10 +37,8 @@ function AccDetal() {
     });
   };
 
-  const profilImger = JSON.parse(localStorage.getItem("profilImg"));
-
   const imgChange = (e) => {
-    const name = e?.target.name;
+    const name = e.target.name;
     const value =
       e?.target.type === "file"
         ? URL.createObjectURL(e.target.files[0])
@@ -53,8 +52,17 @@ function AccDetal() {
   const [alert, setAlert] = useState(false);
 
   const saveChange = () => {
-    localStorage.setItem("profilImg", JSON.stringify(profilImg));
+    if (profilImg) {
+      localStorage.setItem("profilImg", JSON.stringify(profilImg));
+    }
   };
+
+  const profilImger = JSON.parse(localStorage.getItem("profilImg"));
+
+  const remuveImg = () => {
+    localStorage.removeItem("profilImg");
+  };
+
   const saveDetal = () => {
     if (
       accDetals.firstName &&
@@ -65,10 +73,6 @@ function AccDetal() {
       localStorage.setItem("accDetal", JSON.stringify(accDetals));
       setAlert((prev) => !prev);
     }
-  };
-
-  const remuveImg = () => {
-    localStorage.removeItem("profilImg");
   };
 
   setTimeout(() => {
@@ -146,7 +150,7 @@ function AccDetal() {
               <label htmlFor="profilImg">
                 <div className="userPhoto">
                   {profilImger ? (
-                    <img src={profilImger?.img} alt="" />
+                    <img src={profilImger.img} alt="" />
                   ) : (
                     <AddPhotoAlternateIcon />
                   )}
@@ -162,7 +166,7 @@ function AccDetal() {
               <button onClick={saveChange} className="change-but">
                 Change
               </button>
-              <button onChange={remuveImg} className="remuverImg">
+              <button onClick={remuveImg} className="remuverImg">
                 Remove
               </button>
             </div>
