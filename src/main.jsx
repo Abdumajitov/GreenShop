@@ -19,9 +19,6 @@ const AccaountDetal = lazy(() =>
 const Addres = lazy(() =>
   import("./Components/profil/profilComponents/Addres/Addres")
 );
-const Likes = lazy(() =>
-  import("./Components/profil/profilComponents/Likes/Likes")
-);
 const Orders = lazy(() =>
   import("./Components/profil/profilComponents/Orders/Orders")
 );
@@ -67,10 +64,6 @@ const router = createBrowserRouter([
           {
             path: "/profil/addres",
             element: <Addres />,
-          },
-          {
-            path: "/profil/likes",
-            element: <Likes />,
           },
           {
             path: "/profil/orders",

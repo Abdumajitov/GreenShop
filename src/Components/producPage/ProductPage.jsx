@@ -28,6 +28,9 @@ function ProductPage() {
       setModal((prev) => !prev);
     }
   };
+  const cloceModal = () => {
+    setModal(false);
+  };
   const [cartItem, setCartItem] = useState(korzinaProduct);
   const [prodQty, setProdQty] = useState(1);
 
@@ -65,7 +68,9 @@ function ProductPage() {
 
   const famar = () => {
     const existing = products.filter((item) => item.id === params.id);
-    setPara(existing);
+    if (existing) {
+      setPara(existing);
+    }
   };
   useEffect(() => {
     famar();
@@ -236,9 +241,10 @@ function ProductPage() {
       <Footer />
       {modal && (
         <div className="orPg">
-          <OrPg para={para} />
+          <OrPg para={para} prodQty={prodQty} setModal={setModal}/>
         </div>
       )}
+      {modal && <div onClick={cloceModal} className="modaler"></div>}
     </div>
   );
 }

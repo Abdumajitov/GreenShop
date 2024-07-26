@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 62px;
+  z-index: 1;
 
   .you-cart {
     display: flex;
@@ -212,17 +213,8 @@
   position: absolute;
   inset: 0;
   background-color: #1f253375;
-  z-index: 11;
+  z-index: 1;
   cursor: pointer;
-}
-.order{
-  position: absolute;
-  top: 100px;
-  left: 37%;
-  z-index: 22;
-  background-color: #fff;
-  border-bottom: 5px solid #359740;
-
 }
 .bigKorzina{
   width: 100%;

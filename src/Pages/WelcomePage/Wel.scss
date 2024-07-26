@@ -51,9 +51,9 @@
         }
       }
     }
-    .welcome-img{
+    .welcome-img {
       width: 50%;
-      img{
+      img {
         width: 100%;
       }
     }
@@ -63,11 +63,10 @@
   .welcome-cont {
     background-color: #46a3593f;
     border-radius: 30px;
-    flex-direction: column-reverse;
     overflow: hidden;
     margin-top: 20px;
   }
-  .welcomePage .welcome-cont .welcome-child{
+  .welcomePage .welcome-cont .welcome-child {
     width: 100%;
     padding: 10px;
   }
@@ -82,16 +81,15 @@
   .welcomePage .welcome-cont .welcome-child .welcome-about {
     font-size: 15px;
     margin-top: 5px;
+
+    span{
+      display: none;
+    }
   }
   .welcome-child {
     position: relative;
-    z-index: 2;
   }
-  .welcome-imger {
-    width: 340px;
-    z-index: 1;
-    opacity: 0.4;
-    position: absolute;
-    right: -80px;
+  .welcomePage .welcome-cont .welcome-img img {
+    width: 300px;
   }
 }

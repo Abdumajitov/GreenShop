@@ -116,7 +116,7 @@ function Navbar() {
             </NavLink>
           </div>
           <div className="rightLogin">
-            <div className={"search-cont"}>
+            <div className="search-cont">
               <div className={cater ? "search-wel" : "search-wel2"}>
                 <input type="text" name="search" onChange={inputHandler} />
                 {seracher.map((sea) => {

@@ -1,5 +1,9 @@
+.prodPage {
+  z-index: 1;
+}
 .productPage {
   margin-top: 20px;
+  
   .firstProductPage {
     display: flex;
     align-items: center;
@@ -226,14 +230,11 @@
     }
   }
 }
-.modaler{
+.modaler {
   background-color: #3d3d3d45;
   inset: 0;
   position: absolute;
-  z-index: -1;
-}
-.orPg{
-  z-index: 10;
+  z-index: 1;
 }
 .likeRed {
   color: red;

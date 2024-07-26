@@ -9,9 +9,9 @@ function Order({ total, setModal }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { korzinaProduct } = useSelector((state) => state.productSlice);
   const accProfilDetal = JSON.parse(localStorage.getItem("accDetal"));
   
+  const { korzinaProduct } = useSelector((state) => state.productSlice);
   const goCheck = () => {
     localStorage.setItem(
       "accDetal",

@@ -83,7 +83,7 @@ function Footer() {
           <p className="wouldLike-about">
             We usually post offers and challenges in newsletter. We’re your
             online houseplant destination. We offer a wide range of houseplants
-            and accessories shipped directly from our (green)house to yours!{" "}
+            and accessories shipped directly from our green house to yours!
           </p>
         </div>
       </div>

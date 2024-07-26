@@ -14,8 +14,9 @@ function AdminProd() {
   const [faller, setFaller] = useState(false);
   const [cre, setCre] = useState([]);
   const [state, setState] = useState(products);
+  console.log(cre);
 
-  const updataBtn = products.find((user) => user.id === cre.id);
+  const updataBtn = products.find((prod) => prod.id === cre.id);
 
   const geter = () => {
     setFaller((prev) => !prev);
@@ -27,26 +28,13 @@ function AdminProd() {
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
-
     const id = e.target.getAttribute("data-id");
 
-    const existing = state.map((prod) => {
-      if (prod.id === id) {
-        // prod[name] = value;
-
-        return {
-          id: prod.id,
-          name: prod.value,
-          price: prod.prev,
-          img: prod.img,
-          size: prod.size,
-        };
-      } else {
-        return prod;
-      }
-    });
-
-    setState(existing);
+    setState((prevState) =>
+      prevState.map((prod) =>
+        prod.id === id ? { ...prod, [name]: value } : prod
+      )
+    );
   };
 
   const create = (id) => {

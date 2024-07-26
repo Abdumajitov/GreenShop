@@ -164,9 +164,7 @@ const userSlice = createSlice({
          state.products = payload;
       },
       updateUser: (state, { payload }) => {
-         state.products = state.products.map((prod) =>
-            prod.id === payload.id ? payload : prod
-         );
+         state.products = { ...products, name: payload.name, price: payload.price }
       },
       updateFilteredData: (state, { payload }) => {
          state.filterProduct = payload;

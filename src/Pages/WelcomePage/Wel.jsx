@@ -17,7 +17,7 @@ function Wel() {
     progressContent.current.textContent = `${Math.ceil(time / 100)}s`;
   };
   const goWelPage = () => {
-    navigate("/productItem/10");
+    navigate("/productItem/1");
   };
   return (
     <div className="welcomePage">
@@ -27,9 +27,6 @@ function Wel() {
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
         }}
         modules={[Autoplay, Pagination, Navigation]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
@@ -43,21 +40,22 @@ function Wel() {
                 Let’s Make a Better <span>Planet</span>
               </h2>
               <p className="welcome-about">
-                We are an online plant shop offering a wide range of cheap and
-                trendy plants. Use our plants to create an unique Urban Jungle.
-                Order your favorite plants!
+                We are an online plant shop offering a wide range
+                <span>
+                  of cheap and trendy plants. Use our plants to create an unique
+                  Urban Jungle. Order your favorite plants!
+                </span>
               </p>
               <div className="welcome-child-btn">
                 <button onClick={goWelPage} className="welcome-but">
-                  SHOP{" "}
+                  SHOP
                 </button>
               </div>
             </div>
             <div className="welcome-img">
               <img
-                style={{ marginTop: "-50px" }}
                 className="welcome-imger"
-                src="https://media1.popsugar-assets.com/files/thumbor/4jFr1uUsva5CP-syTZn53d7Qfsg=/fit-in/600x600/filters:format_auto():upscale()/2020/06/03/797/n/1922794/6a62cb3175db0d3f_netimgUYnly2.jpg  "
+                src="https://png.pngtree.com/png-vector/20240310/ourmid/pngtree-house-plants-on-pots-png-image_11931547.png  "
                 alt=""
               />
             </div>
@@ -71,9 +69,11 @@ function Wel() {
                 Let’s Make a Better <span>Planet</span>
               </h2>
               <p className="welcome-about">
-                We are an online plant shop offering a wide range of cheap and
-                trendy plants. Use our plants to create an unique Urban Jungle.
-                Order your favorite plants!
+                We are an online plant shop offering a wide range{" "}
+                <span>
+                  of cheap and trendy plants. Use our plants to create an unique
+                  Urban Jungle. Order your favorite plants!
+                </span>
               </p>
               <div className="welcome-child-btn">
                 <button onClick={goWelPage} className="welcome-but">
@@ -83,9 +83,8 @@ function Wel() {
             </div>
             <div className="welcome-img">
               <img
-                style={{ marginTop: "-50px" }}
                 className="welcome-imger"
-                src="https://media1.popsugar-assets.com/files/thumbor/4jFr1uUsva5CP-syTZn53d7Qfsg=/fit-in/600x600/filters:format_auto():upscale()/2020/06/03/797/n/1922794/6a62cb3175db0d3f_netimgUYnly2.jpg"
+                src="https://png.pngtree.com/png-vector/20240310/ourmid/pngtree-house-plants-on-pots-png-image_11931547.png"
                 alt=""
               />
             </div>
