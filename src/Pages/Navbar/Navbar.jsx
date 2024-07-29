@@ -17,7 +17,7 @@ function Navbar() {
   const { korzinaProduct, filterProduct, seracher, products } = useSelector(
     (state) => state.productSlice
   );
-  const { inputHandler } = useCateHook();
+  const { inputHandler2 } = useCateHook();
 
   const [btnFalse, setBtnFalse] = useState(false);
 
@@ -118,7 +118,7 @@ function Navbar() {
           <div className="rightLogin">
             <div className="search-cont">
               <div className={cater ? "search-wel" : "search-wel2"}>
-                <input type="text" name="search" onChange={inputHandler} />
+                <input type="text" name="search" onChange={inputHandler2} />
                 {seracher.map((sea) => {
                   return (
                     <div

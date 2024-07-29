@@ -15,7 +15,7 @@ const initialState = {
          name: "Fin Wing Begonia",
          img: "https://atlas-content-cdn.pixelsquid.com/stock-images/potted-plant-flower-pot-rAGd4O2-600.jpg",
          price: "169.00",
-         size: "small",
+         size: "Small",
          category: "Potter Plants",
       },
       {
@@ -39,7 +39,7 @@ const initialState = {
          name: "Blushing Bromeliad",
          img: "https://img.freepik.com/premium-photo/photo-modern-living-room-design-with-indoor-plants_763111-132519.jpg",
          price: "139.00",
-         size: "small",
+         size: "Small",
          category: "Big Plants",
       },
       {
@@ -47,7 +47,7 @@ const initialState = {
          name: "Angel Wing Begonia",
          img: "https://atlas-content-cdn.pixelsquid.com/stock-images/potted-plant-flower-pot-mdm41mF-600.jpg",
          price: "169.00",
-         size: "small",
+         size: "Small",
          category: "Potter Plants",
       },
       {
@@ -71,7 +71,7 @@ const initialState = {
          name: "Lowish Bromeliad",
          img: "https://png.pngtree.com/png-vector/20240207/ourmid/pngtree-indoor-plant-flowerpot-png-image_11669796.png",
          price: "139.00",
-         size: "small",
+         size: "Small",
          category: "Big Plants",
       },
       {
@@ -87,7 +87,7 @@ const initialState = {
          name: "Grow Spider Plant",
          img: "https://i5.walmartimages.com/asr/43869a3a-6311-42b6-b196-dc61d304ce8a.09084ca5b2b6d971df265b42b60578bc.jpeg?odnHeight=320&odnWidth=320&odnBg=FFFFFF",
          price: "169.00",
-         size: "small",
+         size: "Small",
          category: "House Plants",
       },
       {
@@ -111,7 +111,7 @@ const initialState = {
          name: "Polsh Bromeliad",
          img: "https://chive.ca/cdn/shop/files/4MONSTERA-5.jpg?v=1714399066&width=2000",
          price: "139.00",
-         size: "small",
+         size: "Small",
          category: "Big Plants",
       },
       {
@@ -119,7 +119,7 @@ const initialState = {
          name: "Wern Begonia",
          img: "https://images.anthemionflowers.com/images/product/600x700/in-au-999318-monstera-indoor-plants-australia.jpg",
          price: "169.00",
-         size: "small",
+         size: "Small",
          category: "Potter Plants",
       },
       {
@@ -164,7 +164,7 @@ const userSlice = createSlice({
          state.products = payload;
       },
       updateUser: (state, { payload }) => {
-         state.products = { ...products, name: payload.name, price: payload.price }
+         state.products = payload
       },
       updateFilteredData: (state, { payload }) => {
          state.filterProduct = payload;

@@ -24,8 +24,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 function Prod() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { korzinaProduct } = useSelector((state) => state.productSlice);
-  const { products, filterProduct } = useSelector(
+  const { products, filterProduct, korzinaProduct } = useSelector(
     (state) => state.productSlice
   );
   const [cartItem, setCartItem] = useState(korzinaProduct);
@@ -60,13 +59,6 @@ function Prod() {
   };
 
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 700);
-  }, [filterProduct]);
 
   const { inputHandler, setInputData } = useCateHook();
 

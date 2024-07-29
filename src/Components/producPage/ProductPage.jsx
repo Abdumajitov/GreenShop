@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./ProductPage.scss";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Footer from "../../Pages/Navbar/Footer/Footer";
@@ -9,12 +9,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { korzinaProd } from "../../toolkit/userSlice/productSlice";
 import { useParams } from "react-router-dom";
 import OrPg from "../producPage/OrderPage/OrPg";
+import serach from "../../assets/PageImg/logo/search-interface-symbol.png";
+import ShopingBag from "../../assets/PageImg/logo/shopping-bag.png";
 
 function ProductPage() {
   const params = useParams();
+  const navigate = useNavigate();
   const [value, setValue] = React.useState(5);
   const [fall, setFall] = useState(false);
   const [modal, setModal] = useState(false);
+  const [para, setPara] = useState([]);
   const dispatch = useDispatch();
   const get = () => {
     setFall((prev) => !prev);
@@ -22,6 +26,19 @@ function ProductPage() {
   const { korzinaProduct, products } = useSelector(
     (state) => state.productSlice
   );
+
+  const [recProd, setRecProd] = useState([]);
+  console.log(recProd);
+  const recomendet = () => {
+    const existing = products.find((recProd) => recProd.id === params.id);
+    if (existing) {
+      const newItem = products.filter(
+        (item) => item.category === existing.category
+      );
+      setRecProd(newItem);
+    }
+  };
+
   const orderPage = (prod) => {
     const existing = products.find((item) => item.id === prod.id);
     if (existing) {
@@ -37,6 +54,18 @@ function ProductPage() {
   useEffect(() => {
     dispatch(korzinaProd(cartItem));
   }, [cartItem]);
+
+  const famar = () => {
+    const existing = products.find((item) => item.id === params.id);
+    if (existing) {
+      setPara([existing]);
+    }
+  };
+
+  useEffect(() => {
+    famar();
+    recomendet();
+  }, [params.id, products]);
 
   const addKorzina = (prod) => {
     console.log(prodQty);
@@ -64,17 +93,16 @@ function ProductPage() {
     dispatch(korzinaProd(cartItem));
   }, [cartItem]);
 
-  const [para, setPara] = useState([]);
-
-  const famar = () => {
-    const existing = products.filter((item) => item.id === params.id);
-    if (existing) {
-      setPara(existing);
-    }
+  const [faller, setFaller] = useState(false);
+  const geter = () => {
+    setFaller((prev) => !prev);
   };
-  useEffect(() => {
-    famar();
-  }, []);
+
+  const goProdPage = (prod) => {
+    const existing = products.find((item) => item.id === prod.id);
+    navigate(`/productItem/${existing.id}`);
+  };
+
   return (
     <div className="prodPage">
       <div className="productPage">
@@ -237,11 +265,65 @@ function ProductPage() {
             wooden stand to help elevate your plants off the ground.
           </p>
         </div>
+        <div className="releted">
+          <p className="releted-products">Releted Products</p>
+        </div>
+        <div className="recomendet">
+          {recProd.map((recomer) => (
+            <div key={recomer.id} className="recItem">
+              <div className="product-img">
+                <img
+                  onClick={() => goProdPage(recProd.id)}
+                  name="img"
+                  src={recomer.img}
+                  alt=""
+                  className="imger"
+                />
+                <div className="bottom-img">
+                  <img
+                    onClick={() => addKorzina(recomer)}
+                    className="bottom-imger1"
+                    src={ShopingBag}
+                    alt=""
+                  />
+                  <p
+                    onClick={geter}
+                    className={faller ? "reder" : "bottom-imger"}
+                  >
+                    <FavoriteIcon />
+                  </p>
+                  <img className="bottom-imger2" src={serach} alt="" />
+                </div>
+              </div>
+              <div
+                onClick={() => goProdPage(recomer.id)}
+                className="product-sale"
+              >
+                <div className="product-sale-p">
+                  <p name="name" className="product-name">
+                    {recomer.name}
+                  </p>
+                  <p name="price" className="product-price">
+                    ${recomer.price}
+                  </p>
+                </div>
+                <div className="product-sale-bag">
+                  <img
+                    onClick={() => addKorzina(recomer)}
+                    className="bottom-imger12"
+                    src={ShopingBag}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <Footer />
       {modal && (
         <div className="orPg">
-          <OrPg para={para} prodQty={prodQty} setModal={setModal}/>
+          <OrPg para={para} prodQty={prodQty} setModal={setModal} />
         </div>
       )}
       {modal && <div onClick={cloceModal} className="modaler"></div>}

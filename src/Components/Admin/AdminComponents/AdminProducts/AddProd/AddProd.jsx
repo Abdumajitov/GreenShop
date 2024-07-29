@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddProd.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../../../../toolkit/userSlice/productSlice";
@@ -11,7 +11,6 @@ function AddProd() {
     price: "",
     cate: "",
   });
-
   const inSave = (e) => {
     const name = e.target.name;
     const value =

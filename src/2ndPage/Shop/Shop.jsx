@@ -55,16 +55,7 @@ function Shop() {
     setValue(newValue);
   };
 
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 700);
-  }, [filterProduct]);
-
-  const { inputHandler } = useCateHook();
+  const { inputHandler3, inputHandler } = useCateHook();
 
   const [cater, setCater] = useState(false);
 
@@ -87,6 +78,39 @@ function Shop() {
   const postPage = lastIndex - lowPage;
   const Pages = Math.ceil(filterProduct.length / lowPage);
 
+  const categ = [
+    { category: "House Plants" },
+    { category: "Potter Plants" },
+    { category: "Seeds" },
+    { category: "Small Plants" },
+    { category: "Big Plants" },
+  ];
+  const size = [{ size: "Small" }, { size: "Medium" }, { size: "Large" }];
+
+  const [cateLengh, setCateLengh] = useState([]);
+  const [cateSize, setCateSize] = useState([]);
+  console.log(cateSize);
+
+  const lenCate = () => {
+    const newCateLengh = categ.map((cat) => {
+      const newLeng = products.filter((item) => item.category === cat.category);
+      return { category: cat.category, length: newLeng.length };
+    });
+    setCateLengh(newCateLengh);
+  };
+  const lenCate2 = () => {
+    const newCateLengh = size.map((cat) => {
+      const newLeng = products.filter((item) => item.size === cat.size);
+      return { size: cat.size, length: newLeng.length };
+    });
+    setCateSize(newCateLengh);
+  };
+
+  useEffect(() => {
+    lenCate();
+    lenCate2();
+  }, []);
+
   return (
     <div className="shop-page">
       <h1 className="shop-h1">Shop</h1>
@@ -106,56 +130,19 @@ function Shop() {
           </div>
           <div className={cater ? "leftCategory-mini2" : "leftCategory-mini"}>
             <div className="categoryAbzor">
-              <div className="categoryAbzor-cont">
-                <button
-                  onClick={inputHandler}
-                  name="category"
-                  value="House Plants"
-                  className="categoryAbzor-p"
-                >
-                  House Plants
-                </button>
-              </div>
-              <div className="categoryAbzor-cont">
-                <button
-                  onClick={inputHandler}
-                  name="category"
-                  value="Potter Plants"
-                  className="categoryAbzor-p"
-                >
-                  Potter Plants
-                </button>
-              </div>
-              <div className="categoryAbzor-cont">
-                <button
-                  onClick={inputHandler}
-                  name="category"
-                  value="Seeds"
-                  className="categoryAbzor-p"
-                >
-                  Seeds
-                </button>
-              </div>
-              <div className="categoryAbzor-cont">
-                <button
-                  onClick={inputHandler}
-                  name="category"
-                  value="Small Plants"
-                  className="categoryAbzor-p"
-                >
-                  Small Plants
-                </button>
-              </div>
-              <div className="categoryAbzor-cont">
-                <button
-                  onClick={inputHandler}
-                  name="category"
-                  value="Big Plants"
-                  className="categoryAbzor-p"
-                >
-                  Big Plants
-                </button>
-              </div>
+              {cateLengh.map((cat, index) => (
+                <div key={index} className="categoryAbzor-cont">
+                  <button
+                    onClick={inputHandler}
+                    name="category"
+                    value={cat.category}
+                    className="categoryAbzor-p"
+                  >
+                    {cat.category}
+                  </button>
+                  <p>({cat.length})</p>
+                </div>
+              ))}
             </div>
             <div className="range">
               <div className="range-cont">
@@ -181,33 +168,39 @@ function Shop() {
                 Filter
               </button>
             </div>
-            <div style={{ marginTop: "20px" }} className="leftCategory-size">
+            <div className="leftCategory-size">
+              <div className="size-p">Size</div>
+              {cateSize.map((siz, index) => (
+                <div key={index} className="categoryAbzor-cont">
+                  <button
+                    onClick={inputHandler3}
+                    name="size"
+                    value={siz.size}
+                    className="categoryAbzor-p"
+                  >
+                    {siz.size}
+                  </button>
+                  <p>({siz.length})</p>
+                </div>
+              ))}
               <img src={superSale} alt="" />
             </div>
           </div>
         </div>
         <div className="rigtBar">
-          {loading ? (
-            <div className="loading">
-              <Stack sx={{ color: "grey.500" }} spacing={2} direction="row">
-                <CircularProgress color="success" />
-              </Stack>
-            </div>
-          ) : (
-            <div className="bottom-product">
-              {filterProduct.slice(postPage, lastIndex).map((product, i) => {
-                return (
-                  <ProdItem
-                    goProdPage={goProdPage}
-                    key={i}
-                    cartItem={cartItem}
-                    {...product}
-                    addKorzina={addKorzina}
-                  />
-                );
-              })}
-            </div>
-          )}
+          <div className="bottom-product">
+            {filterProduct.slice(postPage, lastIndex).map((product, i) => {
+              return (
+                <ProdItem
+                  goProdPage={goProdPage}
+                  key={i}
+                  cartItem={cartItem}
+                  {...product}
+                  addKorzina={addKorzina}
+                />
+              );
+            })}
+          </div>
           <div className="pagination">
             <Stack spacing={2}>
               <Pagination

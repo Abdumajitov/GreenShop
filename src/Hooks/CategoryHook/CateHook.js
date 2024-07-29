@@ -4,7 +4,7 @@ import { updateFilteredData, searchDet } from "../../toolkit/userSlice/productSl
 
 function CateHook() {
 
-    const dsipatch = useDispatch()
+    const dispatch = useDispatch()
 
     const { products, filterProduct } = useSelector(
         (state) => state.productSlice
@@ -12,15 +12,28 @@ function CateHook() {
 
     const [inputData, setInputData] = useState({
         category: "all",
+    });
+    const [inputData2, setInputData2] = useState({
         search: "",
+    });
+    const [inputData3, setInputData3] = useState({
+        size: "all",
     });
 
     useEffect(() => {
         filterData();
-        filterData2()
     }, [
         inputData.category,
-        inputData.search,
+    ]);
+    useEffect(() => {
+        filterData2()
+    }, [
+        inputData2.search,
+    ]);
+    useEffect(() => {
+        filterData3()
+    }, [
+        inputData3.size,
     ]);
 
     const filterData = () => {
@@ -30,33 +43,55 @@ function CateHook() {
                 (shoe) => shoe.category === inputData.category
             );
         }
-        dsipatch(updateFilteredData(tempData))
+        dispatch(updateFilteredData(tempData))
     };
 
     const filterData2 = () => {
         let tempData = [];
-        if (inputData.search) {
+        if (inputData2.search) {
             tempData = [...products]
             tempData = tempData.filter((shoe) =>
-                shoe.name.toLowerCase().includes(inputData.search)
+                shoe.name.toLowerCase().includes(inputData2.search)
             );
         }
 
-        dsipatch(searchDet(tempData))
+        dispatch(searchDet(tempData))
+    };
+
+    const filterData3 = () => {
+        let tempData = [...products];
+        if (inputData3.size !== "all") {
+            tempData = tempData.filter(
+                (shoe) => shoe.size === inputData3.size
+            );
+        }
+        dispatch(updateFilteredData(tempData))
     };
 
 
     const inputHandler = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-
         setInputData((prev) => {
             return { ...prev, [name]: value };
         });
-
+    };
+    const inputHandler2 = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setInputData2((prev) => {
+            return { ...prev, [name]: value };
+        });
+    };
+    const inputHandler3 = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setInputData3((prev) => {
+            return { ...prev, [name]: value };
+        });
     };
 
-    return { inputData, inputHandler, setInputData };
+    return { inputData, inputHandler, setInputData, inputHandler2, inputHandler3 };
 }
 
 export default CateHook;

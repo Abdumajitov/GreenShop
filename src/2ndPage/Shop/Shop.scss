@@ -1,18 +1,18 @@
 .shop-detal {
   display: flex;
   margin-top: 30px;
-  gap: 10px;
+  gap: 50px;
 }
-.shop-h1{
+.shop-h1 {
   margin-top: 20px;
 }
 .bottom-product {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
-  height: 100%;
 }
 .leftCategory {
+  width: 250px;
   .categoryAbzor {
     display: flex;
     flex-direction: column;
@@ -54,17 +54,29 @@
       padding: 0px 10px;
       cursor: pointer;
       font-weight: 500;
-      transition: all 0.3s;
+      transition: all 0.2s;
+      width: 100%;
+
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 500;
+      }
     }
     .categoryAbzor-cont:hover {
       color: #46a358;
-    }
-    .sizeCategory {
-      padding: 0px 10px;
-      cursor: pointer;
-      font-weight: 500;
+      button {
+        color: #46a358;
+      }
     }
   }
+}
+.size-p {
+  font-weight: 900;
+  font-size: 18px;
+  color: #3d3d3d;
 }
 .categoryAbzor-pp {
   font-weight: 900;
@@ -129,12 +141,12 @@
   display: none;
 }
 @media (max-width: 700px) {
-  .shop-detal{
+  .shop-detal {
     display: flex;
     margin-top: 60px;
     flex-direction: column;
   }
-  .shop-h1{
+  .shop-h1 {
     display: none;
   }
   .leftCategory {

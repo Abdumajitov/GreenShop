@@ -3,7 +3,7 @@
 }
 .productPage {
   margin-top: 20px;
-  
+
   .firstProductPage {
     display: flex;
     align-items: center;
@@ -230,6 +230,23 @@
     }
   }
 }
+.releted {
+  margin-top: 100px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #5ba46a5e;
+}
+.releted-products {
+  color: #46a358;
+  font-size: 17px;
+  font-weight: 700;
+}
+.recomendet {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  margin-top: 50px;
+}
 .modaler {
   background-color: #3d3d3d45;
   inset: 0;
@@ -238,6 +255,114 @@
 }
 .likeRed {
   color: red;
+}
+.recItem {
+  width: 250px;
+}
+.product-img {
+  position: relative;
+  background-color: #fbfbfb;
+  overflow: hidden;
+  border-top: 1px solid transparent;
+  .imger {
+    width: 100%;
+  }
+  .bottom-img {
+    position: relative;
+    opacity: 0;
+    bottom: -100px;
+    transition: all 0.3s;
+    z-index: 10;
+    padding-top: 15px;
+    .bottom-imger {
+      width: 20px;
+      color: #2323235d;
+      position: absolute;
+      margin-left: 45%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .reder {
+      width: 20px;
+      color: #ff0000b3;
+      position: absolute;
+      margin-left: 45%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .bottom-imger2 {
+      width: 20px;
+      position: absolute;
+      margin-left: 10px;
+      margin-left: 60%;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .bottom-imger1 {
+      width: 20px;
+      position: absolute;
+      margin-left: 30%;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    img:hover {
+      scale: 1.04;
+    }
+  }
+}
+.product-img:hover {
+  border-top: 1px solid #46a358;
+  .bottom-img {
+    bottom: 24px;
+    opacity: 1;
+  }
+}
+.product-sale {
+  margin-top: 12px;
+
+  .product-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3d3d3d;
+    font-family: "Roboto", sans-serif;
+  }
+  .product-price {
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #46a358;
+    font-family: "Roboto", sans-serif;
+  }
+}
+.product-sale-bag {
+  display: none;
+}
+@media (max-width: 700px) {
+  .imger {
+    width: 100%;
+  }
+  .greenshop-product {
+    z-index: 1;
+  }
+  .bottom-img {
+    display: none;
+  }
+  .product-sale {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .product-sale-bag {
+      display: inline-block;
+
+      .bottom-imger12 {
+        width: 20px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 @media (max-width: 1000px) {
   .productPage {

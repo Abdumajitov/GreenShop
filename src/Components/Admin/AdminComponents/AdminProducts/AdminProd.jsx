@@ -7,14 +7,17 @@ import AddIcon from "@mui/icons-material/Add";
 import AddProd from "./AddProd/AddProd";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { updateUser } from "../../../../toolkit/userSlice/productSlice";
+import useCateHook from "../../../../Hooks/CategoryHook/CateHook";
 
 function AdminProd() {
-  const { products } = useSelector((state) => state.productSlice);
+  const { products, seracher } = useSelector((state) => state.productSlice);
+  console.log(seracher);
   const dispatch = useDispatch();
   const [faller, setFaller] = useState(false);
   const [cre, setCre] = useState([]);
   const [state, setState] = useState(products);
-  console.log(cre);
+  console.log(state);
+  const { inputHandler2 } = useCateHook();
 
   const updataBtn = products.find((prod) => prod.id === cre.id);
 
@@ -23,11 +26,16 @@ function AdminProd() {
   };
 
   const saveCreate = () => {
-    dispatch(updateUser(updataBtn));
+    dispatch(updateUser(state));
   };
 
   const onChangeHandler = (e) => {
-    const { name, value } = e.target;
+    const name = e.target.name;
+    const value =
+      e.target.type === "file"
+        ? URL.createObjectURL(e.target.files[0])
+        : e.target.value;
+    console.log(e);
     const id = e.target.getAttribute("data-id");
 
     setState((prevState) =>
@@ -53,7 +61,7 @@ function AdminProd() {
     <div className="adminProd">
       <div style={{ marginBottom: "20px" }} className="adminUser-search">
         <div className="analistik-search">
-          <input type="text" />
+          <input onChange={inputHandler2} name="search" type="text" />
           <SearchIcon />
         </div>
         <div className="addUser">
@@ -117,6 +125,8 @@ function AdminProd() {
                         type="file"
                         name="img"
                         id="prodImg"
+                        data-id={product.id}
+                        onChange={onChangeHandler}
                       />
                       <button className="change-but">Change</button>
                     </div>

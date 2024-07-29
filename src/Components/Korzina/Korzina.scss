@@ -216,11 +216,11 @@
   z-index: 1;
   cursor: pointer;
 }
-.bigKorzina{
+.bigKorzina {
   width: 100%;
 }
-@media (max-width:880px) {
-  .korzina{
+@media (max-width: 880px) {
+  .korzina {
     display: flex;
     flex-direction: column;
   }
