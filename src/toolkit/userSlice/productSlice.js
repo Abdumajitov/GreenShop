@@ -117,7 +117,7 @@ const initialState = {
       {
          id: "15",
          name: "Wern Begonia",
-         img: "https://images.anthemionflowers.com/images/product/600x700/in-au-999318-monstera-indoor-plants-australia.jpg",
+         img: "https://media.istockphoto.com/id/1380361370/photo/decorative-banana-plant-in-concrete-vase-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=eYADMQ9dXTz1mggdfn_exN2gY61aH4fJz1lfMomv6o4=",
          price: "169.00",
          size: "Small",
          category: "Potter Plants",

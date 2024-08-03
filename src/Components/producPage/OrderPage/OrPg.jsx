@@ -6,6 +6,7 @@ import { saleProduct } from "../../../toolkit/userSlice/productSlice";
 
 function OrPg({ para, prodQty, setModal }) {
   const [total, setTotal] = useState(0);
+  console.log(total);
   const dispatch = useDispatch();
   const { korzinaProduct } = useSelector((state) => state.productSlice);
 
@@ -13,13 +14,13 @@ function OrPg({ para, prodQty, setModal }) {
 
   const totalAmount = () => {
     setTotal(
-      korzinaProduct.reduce((a, product) => a + product.price * product.qty, 0)
+      para.reduce((a, product) => a + product.price * product.qty, 0)
     );
   };
 
   useEffect(() => {
     totalAmount();
-  }, [korzinaProduct]);
+  }, [total]);
 
   const goCheck = () => {
     localStorage.setItem(
@@ -29,6 +30,15 @@ function OrPg({ para, prodQty, setModal }) {
     dispatch(saleProduct(korzinaProduct));
     setModal((prev) => !prev);
   };
+
+  const randomData = Date.now();
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.toLocaleString("default", { month: "long" });
+  const day = String(date.getDate()).padStart(2, "0");
+  const formattedDate = ` ${day} ${month} ${year}`;
+
   return (
     <div className="orderPage">
       <div className="order-hand">
@@ -38,15 +48,15 @@ function OrPg({ para, prodQty, setModal }) {
       <div className="order-number">
         <div className="order-number-cont">
           <p className="number">Order Number</p>
-          <p className="api">19586687</p>
+          <p className="api">{randomData}</p>
         </div>
         <div className="order-number-cont">
           <p className="number">Date</p>
-          <p className="api">15 Sep, 2021</p>
+          <p className="api">{formattedDate}</p>
         </div>
         <div className="order-number-cont">
           <p className="number">Total</p>
-          <p className="api">$</p>
+          <p className="api">${total}</p>
         </div>
         <div className="order-number-cont">
           <p className="number">Payment Method</p>

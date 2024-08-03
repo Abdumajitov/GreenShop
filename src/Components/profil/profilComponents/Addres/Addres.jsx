@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./Addres.scss";
+import "../AccauntDetals/AccDetal.scss";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -100,7 +100,7 @@ function Addres() {
           <div className="firstName">
             <label>Town / City</label>
             <input
-              value={accDetals.lastName}
+              value={accDetals.sity}
               onChange={accDetal}
               name="sity"
               type="text"

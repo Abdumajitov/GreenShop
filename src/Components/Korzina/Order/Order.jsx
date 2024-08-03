@@ -10,7 +10,7 @@ function Order({ total, setModal }) {
   const navigate = useNavigate();
 
   const accProfilDetal = JSON.parse(localStorage.getItem("accDetal"));
-  
+
   const { korzinaProduct } = useSelector((state) => state.productSlice);
   const goCheck = () => {
     localStorage.setItem(
@@ -22,6 +22,14 @@ function Order({ total, setModal }) {
     navigate("/");
   };
 
+  const randomData = Date.now();
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.toLocaleString('default', { month: 'long' });
+  const day = String(date.getDate()).padStart(2, "0");
+  const formattedDate = ` ${day} ${month} ${year}`;
+
   return (
     <div className="oreder">
       <div className="order-hand">
@@ -31,11 +39,11 @@ function Order({ total, setModal }) {
       <div className="order-number">
         <div className="order-number-cont">
           <p className="number">Order Number</p>
-          <p className="api">19586687</p>
+          <p className="api">{randomData}</p>
         </div>
         <div className="order-number-cont">
           <p className="number">Date</p>
-          <p className="api">15 Sep, 2021</p>
+          <p className="api">{formattedDate}</p>
         </div>
         <div className="order-number-cont">
           <p className="number">Total</p>

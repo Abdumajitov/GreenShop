@@ -28,7 +28,7 @@ function ProductPage() {
   );
 
   const [recProd, setRecProd] = useState([]);
-  console.log(recProd);
+  
   const recomendet = () => {
     const existing = products.find((recProd) => recProd.id === params.id);
     if (existing) {
@@ -68,7 +68,6 @@ function ProductPage() {
   }, [params.id, products]);
 
   const addKorzina = (prod) => {
-    console.log(prodQty);
     const existing = cartItem.find((item) => item.id === prod.id);
     if (existing) {
       const newItem = cartItem.map((item) =>
@@ -98,10 +97,13 @@ function ProductPage() {
     setFaller((prev) => !prev);
   };
 
-  const goProdPage = (prod) => {
-    const existing = products.find((item) => item.id === prod.id);
+  const goProdPage = (id) => {
+    const existing = products.find((item) => item.id === id);
     navigate(`/productItem/${existing.id}`);
+    window.location.reload();
   };
+
+  const randomData = Date.now();
 
   return (
     <div className="prodPage">
@@ -227,7 +229,7 @@ function ProductPage() {
                   </div>
                 </div>
                 <div className="productPage-category">
-                  <p className="productPage-category-p">SKU: 1995751877966</p>
+                  <p className="productPage-category-p">SKU: {randomData}</p>
                   <p className="productPage-category-p">
                     Categories: {map.category}
                   </p>
@@ -273,7 +275,7 @@ function ProductPage() {
             <div key={recomer.id} className="recItem">
               <div className="product-img">
                 <img
-                  onClick={() => goProdPage(recProd.id)}
+                  onClick={() => goProdPage(recomer.id)}
                   name="img"
                   src={recomer.img}
                   alt=""
